@@ -1,0 +1,9 @@
+@use 'sass:color';
+
+$primary: #005fff;
+$secondary: #ff7e29;
+$base: #0a1526;
+$white: #fff;
+
+$bg-primary: $white;
+$bg-secondary: color.change($base, $alpha: 0.02);

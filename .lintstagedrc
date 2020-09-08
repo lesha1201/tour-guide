@@ -1,0 +1,12 @@
+{
+  "**/!(*.?(s)css.d).+(js|jsx|ts|tsx|json|yaml|yml|css|sass|scss|md|mdx|graphql)": [
+    "npm run prettier:format"
+  ],
+  "*.{ts,tsx,js,jsx}": [
+    "npm run lint",
+    "npm run test -- --ci --findRelatedTests"
+  ],
+  "*.{scss,sass}": [
+    "npm run lint:css"
+  ]
+}

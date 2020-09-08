@@ -1,0 +1,15 @@
+node_modules
+esm
+umd
+dist
+build
+serverless-dist
+__generated__
+storybook-static
+coverage
+*.scss.d.ts
+.cache
+public
+
+# GraphQL types are generated
+src/types/graphql.ts

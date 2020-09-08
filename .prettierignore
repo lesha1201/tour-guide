@@ -1,0 +1,11 @@
+# Files
+package-lock.json
+
+# Folders
+node_modules/
+dist/
+coverage/
+storybook-static/
+__generated__/
+.cache/
+public/

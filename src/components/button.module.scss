@@ -1,0 +1,11 @@
+@use 'tokens/colors' as colors;
+
+.base {
+  display: inline-flex;
+  padding: 20px 28px;
+
+  color: colors.$primary;
+  font-size: 18px;
+
+  border: 0;
+}

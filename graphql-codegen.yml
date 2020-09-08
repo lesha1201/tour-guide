@@ -1,0 +1,17 @@
+overwrite: true
+schema: 'http://localhost:8000/___graphql'
+documents: 'src/**/*.tsx'
+pluckConfig:
+  modules:
+    - name: gatsby
+      identifier: graphql
+generates:
+  src/types/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+    config:
+      enumsAsTypes: true
+hooks:
+  afterAllFileWrite:
+    - prettier --write
