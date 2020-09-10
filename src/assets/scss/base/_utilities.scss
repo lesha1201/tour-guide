@@ -1,0 +1,33 @@
+@use '../tokens/colors' as colors;
+
+:global {
+  .text-inherit {
+    color: inherit;
+  }
+
+  // text-primary
+  .text-t-primary {
+    color: var(--color-text-primary);
+  }
+
+  // text-secondary
+  .text-t-secondary {
+    color: var(--color-text-secondary);
+  }
+
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+
+  .text-black {
+    color: var(--color-black);
+  }
+
+  .text-white {
+    color: var(--color-white);
+  }
+}

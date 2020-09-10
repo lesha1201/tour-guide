@@ -13,18 +13,21 @@
   padding: 0;
 }
 
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+}
+
 html {
   font-size: 62.5%;
-
-  @include mixins.respond(tab-port) {
-    font-size: 75%;
-  }
 }
 
 body {
   box-sizing: border-box;
 
-  color: colors.$primary;
+  color: var(--color-text-primary);
   font-weight: 400;
   font-size: 1.4rem;
   font-family: sans-serif;

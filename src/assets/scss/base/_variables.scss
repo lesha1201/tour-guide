@@ -1,0 +1,19 @@
+@use '../mixins';
+@use '../tokens/colors';
+
+:root {
+  @include mixins.generate-css-variables(
+    'color',
+    (
+      primary: colors.$primary,
+      secondary: colors.$secondary,
+      'black': colors.$black,
+      'white': colors.$white,
+      text-primary: colors.$text-primary,
+      text-secondary: colors.$text-secondary,
+      bg-primary: colors.$bg-primary,
+      bg-primary-inverse: colors.$bg-primary-inverse,
+      bg-secondary: colors.$bg-secondary,
+    )
+  );
+}

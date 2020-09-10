@@ -1,13 +1,17 @@
 import React from 'react';
 
-import Button from 'components/button';
+import Button from 'components/ui/button';
+import Layout from 'components/layout';
+import { Container } from 'components/container';
 
 function IndexPage() {
   return (
-    <>
-      <h1>Hello, World!</h1>
-      <Button>Button</Button>
-    </>
+    <Layout>
+      <Container>
+        <h1>Hello, World!</h1>
+        <Button>Button</Button>
+      </Container>
+    </Layout>
   );
 }
 

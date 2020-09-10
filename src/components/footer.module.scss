@@ -1,0 +1,16 @@
+@use 'mixins' as mixins;
+@use 'tokens/colors' as colors;
+@use 'tokens/spacing' as spacing;
+
+.footer {
+  padding-top: spacing.$base * 0.6rem;
+  padding-bottom: spacing.$base * 0.6rem;
+
+  color: var(--color-white);
+
+  background-color: var(--color-bg-primary-inverse);
+}
+
+.logo-icon {
+  width: 11.6rem;
+}

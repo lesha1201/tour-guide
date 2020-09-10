@@ -2109,6 +2109,7 @@ export type SiteEdge = {
 
 export type SiteFieldsEnum =
   | 'buildTime'
+  | 'siteMetadata___url'
   | 'siteMetadata___title'
   | 'siteMetadata___subtitle'
   | 'siteMetadata___copyright'
@@ -2918,6 +2919,7 @@ export type SitePluginSortInput = {
 
 export type SiteSiteMetadata = {
   __typename?: 'SiteSiteMetadata';
+  url?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   subtitle?: Maybe<Scalars['String']>;
   copyright?: Maybe<Scalars['String']>;
@@ -2976,6 +2978,7 @@ export type SiteSiteMetadataAuthorFilterInput = {
 };
 
 export type SiteSiteMetadataFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   subtitle?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;

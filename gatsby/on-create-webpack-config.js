@@ -10,6 +10,9 @@ module.exports = gatsbyOptions => {
 
   setWebpackConfig({
     resolve: {
+      alias: {
+        scss: path.resolve(__dirname, '../src/assets/scss'),
+      },
       modules: [path.resolve(__dirname, '../src'), 'node_modules'],
     },
     module: {

@@ -1,7 +1,15 @@
 {
-  "extends": ["stylelint-config-sass-guidelines"],
+  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-css-modules"],
   "plugins": ["stylelint-config-rational-order/plugin"],
   "rules": {
+    "selector-max-id": null,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["value"]
+      }
+    ],
     "order/properties-alphabetical-order": null,
     "order/properties-order": [],
     "plugin/rational-order": [

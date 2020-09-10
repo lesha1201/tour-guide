@@ -1,0 +1,6 @@
+/* Generates CSS variables in the format "--prefix-name: value" */
+@mixin generate-css-variables($prefix, $vars) {
+  @each $name, $value in $vars {
+    --#{$prefix}-#{$name}: #{$value};
+  }
+}

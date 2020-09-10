@@ -59,6 +59,16 @@ module.exports = {
     react: {
       version: 'detect',
     },
+    'import/resolver': {
+      webpack: {
+        config: {
+          resolve: {
+            modules: [path.resolve(__dirname, './src'), 'node_modules'],
+            extensions: ['.ts', '.tsx', '.js', '.jsx'],
+          },
+        },
+      },
+    },
   },
   overrides: [
     // Typescript
@@ -96,7 +106,7 @@ module.exports = {
     },
     // NodeJS files
     {
-      files: ['./*.js', 'jest/*.js', 'gatsby/*.js', 'test/*.js'],
+      files: ['./*.js', 'jest/*.js', 'gatsby/*.js'],
       env: {
         browser: false,
       },

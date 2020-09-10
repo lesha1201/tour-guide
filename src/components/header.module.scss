@@ -1,0 +1,83 @@
+@use 'mixins' as mixins;
+@use 'tokens/spacing' as spacing;
+
+.header {
+  composes: container from global;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: {
+    top: spacing.$base * 0.6rem;
+    bottom: spacing.$base * 0.6rem;
+  }
+}
+
+.header--light {
+  color: var(--color-white);
+}
+
+.mob-nav {
+  @include mixins.respond(desk-small) {
+    display: none;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.logo-icon {
+  margin-right: 1.2rem;
+}
+
+.logo-text {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: nowrap;
+
+  font-size: 2.4rem;
+
+  list-style: none;
+
+  @include mixins.respond(desk-small) {
+    font-size: 2rem;
+  }
+}
+
+.nav {
+  display: none;
+
+  @include mixins.respond(desk-small) {
+    display: block;
+  }
+}
+
+.nav-list-item {
+  &:not(:last-child) {
+    margin-right: 28px;
+  }
+}
+
+.nav-list-item-link {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.cta-block {
+  display: none;
+
+  font-size: 2rem;
+
+  @include mixins.respond(desk-small) {
+    display: block;
+  }
+}

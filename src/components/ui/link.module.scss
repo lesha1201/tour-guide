@@ -1,0 +1,18 @@
+@use 'tokens/colors' as colors;
+
+.base {
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.color-inherit {
+  color: inherit;
+}
