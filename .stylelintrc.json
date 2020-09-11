@@ -2,13 +2,28 @@
   "extends": ["stylelint-config-sass-guidelines", "stylelint-config-css-modules"],
   "plugins": ["stylelint-config-rational-order/plugin"],
   "rules": {
+    "max-nesting-depth": 2,
+    "indentation": null,
     "selector-max-id": null,
     "at-rule-no-unknown": null,
+    "function-parentheses-space-inside": "never-single-line",
     "scss/at-rule-no-unknown": [
       true,
       {
         "ignoreAtRules": ["value"]
       }
+    ],
+    "order/order": [
+      [
+        "custom-properties",
+        "dollar-variables",
+        {
+          "type": "at-rule",
+          "name": "extend"
+        },
+        "declarations",
+        "rules"
+      ]
     ],
     "order/properties-alphabetical-order": null,
     "order/properties-order": [],

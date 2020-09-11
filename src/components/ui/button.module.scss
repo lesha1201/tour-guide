@@ -1,11 +1,83 @@
 @use 'tokens/colors' as colors;
 
-.base {
+@mixin btn-painted($name, $color, $hover-color) {
+  &.#{$name} {
+    background-color: $color;
+
+    &:not(:disabled):hover {
+      background-color: $hover-color;
+    }
+  }
+}
+
+@mixin btn-outlined($name, $color) {
+  &.#{$name} {
+    color: $color;
+
+    border-color: $color;
+  }
+}
+
+.common {
   display: inline-flex;
-  padding: 20px 28px;
+  padding: 0.6em 1.55em;
 
-  color: var(--color-primary);
-  font-size: 18px;
+  color: var(--color-white);
+  font-size: 1em;
+  font-family: inherit;
+  white-space: nowrap;
+  text-decoration: none;
 
-  border: 0;
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  outline: none;
+  cursor: pointer;
+
+  transition: all 0.2s;
+
+  user-select: none;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):focus {
+    box-shadow: 0 0 0 3px rgba(colors.$primary, 0.6);
+  }
+
+  /* Modifiers */
+
+  &.full {
+    width: 100%;
+  }
+
+  &.wide {
+    padding: 0.6em 2.1em;
+  }
+
+  &.rounded {
+    border-radius: 100rem;
+  }
+}
+
+/* Themes */
+
+.painted {
+  composes: common;
+
+  @include btn-painted('primary', var(--color-primary), var(--color-primary-dark));
+  @include btn-painted('white', var(--color-white), var(--color-white-dark));
+}
+
+.outlined {
+  composes: common;
+
+  background-color: transparent;
+
+  &:not(:disabled):hover {
+    box-shadow: inset 0 0 0 0.1em currentColor;
+  }
+
+  @include btn-outlined('primary', var(--color-primary));
+  @include btn-outlined('white', var(--color-white));
 }

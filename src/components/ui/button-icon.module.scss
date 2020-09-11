@@ -1,0 +1,14 @@
+.base {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0;
+
+  color: inherit;
+  font-family: inherit;
+  white-space: nowrap;
+
+  background-color: transparent;
+
+  border: 0;
+  cursor: pointer;
+}

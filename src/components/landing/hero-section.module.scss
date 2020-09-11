@@ -1,0 +1,127 @@
+@use 'mixins';
+@use 'tokens/spacing';
+@use 'tokens/colors';
+
+.section {
+  position: relative;
+
+  min-height: 100%;
+
+  color: var(--color-white);
+
+  background-color: var(--color-black);
+  background-image: linear-gradient(
+      to bottom,
+      rgba(colors.$black, 0),
+      rgba(colors.$primary, 0.3)
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url('../../../static/landing-bg.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-box {
+  @include mixins.transform-center;
+
+  width: 100%;
+}
+
+.hero-box-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-img-box {
+  display: inline-flex;
+  width: 16rem;
+  height: 16rem;
+  margin: 0 auto;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  border-radius: 1.6rem;
+}
+
+.hero-btn {
+  font-size: 1.8rem;
+}
+
+.hero-title {
+  margin-top: spacing.$base * 0.6rem;
+
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.hero-cta {
+  margin-top: spacing.$base * 0.6rem;
+
+  > *:not(:last-child) {
+    margin-right: spacing.$base * 0.6rem;
+  }
+}
+
+.chevron-down {
+  position: absolute;
+  bottom: spacing.$base * 0.4rem;
+  left: 50%;
+
+  width: 4rem;
+  height: 4rem;
+
+  transform: translateX(-50%);
+}
+
+@include mixins.respond(tab-land) {
+  .hero-box-container {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .hero-img-box {
+    width: 40%;
+    max-width: 40rem;
+    height: 40%;
+    max-height: 40rem;
+    margin: 0;
+    margin-left: 8rem;
+  }
+
+  .hero-title {
+    margin-top: 0;
+
+    font-size: 4vw;
+    text-align: left;
+  }
+
+  .hero-cta {
+    margin-top: spacing.$base * 0.8rem;
+  }
+}
+
+@include mixins.respond(desk-small) {
+  .hero-btn {
+    font-size: 2.8rem;
+  }
+
+  .hero-cta {
+    margin-top: spacing.$base * 1rem;
+
+    > *:not(:last-child) {
+      margin-right: spacing.$base * 1rem;
+    }
+  }
+}
+
+@include mixins.respond(desk-big) {
+  .hero-title {
+    font-size: 8rem;
+  }
+}

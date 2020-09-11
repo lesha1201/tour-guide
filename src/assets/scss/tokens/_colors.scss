@@ -1,9 +1,11 @@
 @use 'sass:color';
 
 $primary: #005fff;
+$primary-dark: color.scale($primary, $lightness: -20%);
 $secondary: #ff7e29;
 $black: #0a1526;
 $white: #fff;
+$white-dark: color.scale($white, $lightness: -20%);
 
 $text-primary: $black;
 $text-secondary: rgba($black, 0.6);

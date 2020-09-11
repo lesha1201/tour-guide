@@ -1,6 +1,13 @@
 // This file is generated automatically
 export interface IButtonModuleScss {
-  'base': string;
+  'common': string;
+  'full': string;
+  'wide': string;
+  'rounded': string;
+  'painted': string;
+  'primary': string;
+  'white': string;
+  'outlined': string;
 }
 declare const styles: IButtonModuleScss;
 export = styles;

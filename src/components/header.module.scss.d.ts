@@ -2,15 +2,15 @@
 export interface IHeaderModuleScss {
   'header': string;
   'headerLight': string;
+  'headerExpanded': string;
   'mobNav': string;
-  'logo': string;
-  'logoIcon': string;
-  'logoText': string;
-  'navList': string;
   'nav': string;
+  'navList': string;
   'navListItem': string;
-  'navListItemLink': string;
   'ctaBlock': string;
+  'mobHeader': string;
+  'mobNavIcon': string;
+  'navListItemLink': string;
 }
 declare const styles: IHeaderModuleScss;
 export = styles;

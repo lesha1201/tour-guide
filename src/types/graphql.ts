@@ -2451,6 +2451,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___maxWidth'
   | 'pluginCreator___pluginOptions___withWebp'
   | 'pluginCreator___pluginOptions___wrapperStyle'
+  | 'pluginCreator___pluginOptions___rule___include'
   | 'pluginCreator___pluginOptions___trackingIds'
   | 'pluginCreator___pluginOptions___pluginConfig___head'
   | 'pluginCreator___pluginOptions___query'
@@ -2674,6 +2675,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___maxWidth'
   | 'pluginOptions___withWebp'
   | 'pluginOptions___wrapperStyle'
+  | 'pluginOptions___rule___include'
   | 'pluginOptions___trackingIds'
   | 'pluginOptions___pluginConfig___head'
   | 'pluginOptions___query'
@@ -2815,6 +2817,7 @@ export type SitePluginPluginOptions = {
   maxWidth?: Maybe<Scalars['Int']>;
   withWebp?: Maybe<Scalars['Boolean']>;
   wrapperStyle?: Maybe<Scalars['String']>;
+  rule?: Maybe<SitePluginPluginOptionsRule>;
   trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>;
   pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfig>;
   query?: Maybe<Scalars['String']>;
@@ -2841,6 +2844,7 @@ export type SitePluginPluginOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>;
   withWebp?: Maybe<BooleanQueryOperatorInput>;
   wrapperStyle?: Maybe<StringQueryOperatorInput>;
+  rule?: Maybe<SitePluginPluginOptionsRuleFilterInput>;
   trackingIds?: Maybe<StringQueryOperatorInput>;
   pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfigFilterInput>;
   query?: Maybe<StringQueryOperatorInput>;
@@ -2910,6 +2914,15 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>;
   withWebp?: Maybe<BooleanQueryOperatorInput>;
   wrapperStyle?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRule = {
+  __typename?: 'SitePluginPluginOptionsRule';
+  include?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsRuleFilterInput = {
+  include?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {

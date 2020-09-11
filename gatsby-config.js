@@ -58,6 +58,14 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: path.resolve(__dirname, './src/assets/icons'),
+        },
+      },
+    },
     'gatsby-plugin-netlify',
     'gatsby-plugin-netlify-cms',
     {
