@@ -1,0 +1,45 @@
+@use 'mixins';
+
+$feature-space: 1.6rem;
+
+.section {
+  overflow-x: hidden;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -$feature-space;
+}
+
+.feature-box {
+  flex: 1 1 100%;
+  padding: $feature-space;
+}
+
+@include mixins.respond(tab-land) {
+  $feature-space: 2.4rem;
+
+  .features {
+    margin: -$feature-space;
+  }
+
+  .feature-box {
+    flex-basis: 50%;
+    padding: $feature-space;
+  }
+}
+
+@include mixins.respond(desk-small) {
+  $feature-space: 4rem;
+
+  .features {
+    flex-wrap: nowrap;
+    margin: -$feature-space;
+  }
+
+  .feature-box {
+    flex-basis: auto;
+    padding: $feature-space;
+  }
+}

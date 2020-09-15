@@ -2,8 +2,7 @@
 * Initial Setup
 */
 
-@use '../tokens/colors' as colors;
-@use '../mixins' as mixins;
+@use '../mixins';
 
 *,
 *::before,
@@ -26,9 +25,14 @@ html {
 
 body {
   box-sizing: border-box;
+  overflow-x: hidden;
 
   color: var(--color-text-primary);
   font-weight: 400;
   font-size: 1.4rem;
   font-family: 'Nunito', sans-serif;
+
+  @include mixins.respond(desk-big) {
+    font-size: 1.8rem;
+  }
 }

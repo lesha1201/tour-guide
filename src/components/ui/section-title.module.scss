@@ -1,0 +1,56 @@
+@use 'mixins';
+@use 'tokens/spacing';
+
+.base {
+  position: relative;
+
+  margin-bottom: spacing.$base * 0.9rem;
+
+  font-weight: 600;
+  font-size: 2.4rem;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 4rem;
+    height: 0.2rem;
+
+    background-color: var(--color-primary);
+    border-radius: 100rem;
+
+    content: '';
+  }
+
+  @include mixins.respond(tab-land) {
+    font-size: 4rem;
+
+    &::after {
+      width: 5rem;
+    }
+  }
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+
+  &::after {
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+}
+
+.align-right {
+  text-align: right;
+
+  &::after {
+    right: 0;
+    left: unset;
+  }
+}

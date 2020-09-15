@@ -4,6 +4,9 @@
 .header {
   composes: container from global;
 
+  position: relative;
+  z-index: 10;
+
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
