@@ -49,6 +49,7 @@
     "@graphql-codegen/cli": "1.17.8",
     "@graphql-codegen/typescript": "1.17.9",
     "@graphql-codegen/typescript-operations": "1.17.8",
+    "@svgr/webpack": "^5.4.0",
     "@types/eslint": "^7.2.2",
     "@types/jest": "^26.0.13",
     "@types/node": "^14.6.3",
@@ -83,7 +84,6 @@
     "gatsby-plugin-offline": "^3.2.27",
     "gatsby-plugin-optimize-svgs": "^1.0.4",
     "gatsby-plugin-react-helmet": "^3.3.10",
-    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.6.33",
     "gatsby-plugin-sitemap": "^2.4.12",
     "gatsby-plugin-typescript": "^2.4.19",
@@ -112,6 +112,7 @@
     "stylelint-config-recommended-scss": "4.2.0",
     "stylelint-config-sass-guidelines": "^7.1.0",
     "stylelint-scss": "3.18.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "webpack-merge": "^5.1.4"
   }
 }

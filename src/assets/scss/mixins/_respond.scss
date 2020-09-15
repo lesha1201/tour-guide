@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /*
 0 - 600px:    Phone (where our normal styles are applied)
 601 - 900px:   Tablet portrait
@@ -12,27 +14,30 @@ $breakpoint argument choices:
 - desk-big
 */
 @mixin respond($breakpoint) {
+  $browser-default-font-size: 16px;
+
   @if $breakpoint == tab-port {
     // min-width is 600px if the font size is 16
     @media only screen and (min-width: 37.5em) {
       @content;
     }
-  }
-  @if $breakpoint == tab-land {
+  } @else if $breakpoint == tab-land {
     // min-width is 900px if the font size is 16
     @media only screen and (min-width: 56.25em) {
       @content;
     }
-  }
-  @if $breakpoint == desk-small {
+  } @else if $breakpoint == desk-small {
     // min-width is 1200px if the font size is 16
     @media only screen and (min-width: 75em) {
       @content;
     }
-  }
-  @if $breakpoint == desk-big {
+  } @else if $breakpoint == desk-big {
     // min-width is 1800px if the font size is 16
     @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  } @else if math.unit($breakpoint) == 'px' {
+    @media only screen and (min-width: $breakpoint / $browser-default-font-size * 1em) {
       @content;
     }
   }

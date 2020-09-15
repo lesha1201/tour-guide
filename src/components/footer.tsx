@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LogoText from './logo-text';
-import { Container } from './container';
+import Container from './container';
 import * as css from './footer.module.scss';
 
 const logoTextCn = {

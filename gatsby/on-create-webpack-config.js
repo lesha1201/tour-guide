@@ -1,14 +1,15 @@
 const path = require('path');
+const { mergeWithCustomize, customizeArray } = require('webpack-merge');
 
 const postCssPlugins = require('../postcss.config.js');
 
 module.exports = gatsbyOptions => {
   const { actions } = gatsbyOptions;
-  const { setWebpackConfig } = actions;
+  const { replaceWebpackConfig } = actions;
 
-  let configRules = [...getCssRules(gatsbyOptions)];
+  const config = gatsbyOptions.getConfig();
 
-  setWebpackConfig({
+  const customConfig = {
     resolve: {
       alias: {
         scss: path.resolve(__dirname, '../src/assets/scss'),
@@ -17,9 +18,17 @@ module.exports = gatsbyOptions => {
       modules: [path.resolve(__dirname, '../src'), 'node_modules'],
     },
     module: {
-      rules: configRules,
+      rules: [...getCssRules(gatsbyOptions), ...getSVGRules(gatsbyOptions)],
     },
-  });
+  };
+
+  const finalConfig = mergeWithCustomize({
+    customizeArray: customizeArray({
+      'module.rules.*': 'prepend',
+    }),
+  })(config, customConfig);
+
+  replaceWebpackConfig(finalConfig);
 };
 
 /**
@@ -82,6 +91,43 @@ function getCssRules({ stage, loaders }) {
           oneOf: [sassRuleModules, sassRule],
         },
       ];
+
+      break;
+    }
+  }
+
+  return configRules;
+}
+
+/**
+ * Webpack SVG rules
+ * @param {object} gatsbyOptions
+ */
+function getSVGRules({ stage, loaders }) {
+  const svgRule = {
+    test: /\.svg$/,
+    issuer: {
+      test: /\.(j|t)sx?$/,
+    },
+    use: [
+      {
+        loader: '@svgr/webpack',
+        options: {
+          svgo: true,
+        },
+      },
+      loaders.url(),
+    ],
+  };
+
+  let configRules = [];
+
+  switch (stage) {
+    case 'develop':
+    case 'build-javascript':
+    case 'build-html':
+    case 'develop-html': {
+      configRules = [...configRules, svgRule];
 
       break;
     }

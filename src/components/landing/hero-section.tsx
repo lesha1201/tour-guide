@@ -2,12 +2,12 @@ import React from 'react';
 
 import mainPhoto from 'static/photo.jpg';
 import Header from 'components/header';
-import { Container } from 'components/container';
+import Container from 'components/container';
 import Button from 'components/ui/button';
-import ChevronDown from 'assets/icons/chevron-down.svg';
+import { ReactComponent as ChevronDown } from 'assets/icons/chevron-down.svg';
 import * as css from './hero-section.module.scss';
 
-export function HeroSection() {
+function HeroSection() {
   return (
     <div className={css.section}>
       <Header variant="light" />
@@ -42,3 +42,5 @@ export function HeroSection() {
     </div>
   );
 }
+
+export default HeroSection;

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import clsx from 'clsx';
 
-import MenuIcon from 'assets/icons/menu.svg';
+import { ReactComponent as MenuIcon } from 'assets/icons/menu.svg';
 import { toggleBodyScroll } from 'utils/dom';
 import Link from './ui/link';
 import ButtonIcon from './ui/button-icon';

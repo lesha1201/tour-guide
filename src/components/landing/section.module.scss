@@ -1,0 +1,23 @@
+@use 'mixins';
+
+.common {
+  position: relative;
+
+  padding: 2.4rem 0;
+
+  @include mixins.respond(desk-small) {
+    padding: 6rem 0;
+  }
+}
+
+.primary {
+  composes: common;
+
+  background-color: var(--color-bg-primary);
+}
+
+.secondary {
+  composes: common;
+
+  background-color: var(--color-bg-secondary);
+}

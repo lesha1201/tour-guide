@@ -1,0 +1,42 @@
+@use 'mixins';
+
+.video-box {
+  position: relative;
+
+  width: 100%;
+  max-width: 120rem;
+  height: 50vw;
+  max-height: 67rem;
+  margin: 0 auto;
+}
+
+.dots {
+  position: absolute;
+  z-index: -1;
+
+  display: none;
+
+  color: var(--color-primary);
+
+  @include mixins.respond(1500px) {
+    display: block;
+  }
+}
+
+.dots-top-left {
+  composes: dots;
+
+  top: 0;
+  left: 0;
+
+  transform: translate(-50%, -50%);
+}
+
+.dots-bottom-right {
+  composes: dots;
+
+  right: 0;
+  bottom: 0;
+
+  transform: translate(50%, 50%);
+}
