@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 import { ReactComponent as MenuIcon } from 'assets/icons/menu.svg';
 import { toggleBodyScroll } from 'utils/dom';
+import { PHONE_NUMBER } from 'constants/config';
 import Link from './ui/link';
 import ButtonIcon from './ui/button-icon';
 import LogoText from './logo-text';
@@ -72,8 +73,8 @@ function Header({ variant }: HeaderProps) {
       </nav>
 
       <div className={css.ctaBlock}>
-        <Link href="tel:+79001001010" color="inherit" withUnderline>
-          +7 (900) 100 10 10
+        <Link href={PHONE_NUMBER.url} color="inherit" withUnderline>
+          {PHONE_NUMBER.pretty}
         </Link>
       </div>
     </header>

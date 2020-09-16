@@ -1,8 +1,10 @@
-@use 'mixins' as mixins;
-@use 'tokens/colors' as colors;
-@use 'tokens/spacing' as spacing;
+@use 'mixins';
+@use 'tokens/colors';
+@use 'tokens/spacing';
 
 .footer {
+  position: relative;
+
   padding-top: spacing.$base * 0.6rem;
   padding-bottom: spacing.$base * 0.6rem;
 
@@ -11,6 +13,143 @@
   background-color: var(--color-bg-primary-inverse);
 }
 
+.container {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-base {
+  margin-bottom: spacing.$base * 0.8rem;
+}
+
 .logo-icon {
-  width: 11.6rem;
+  width: 8rem;
+}
+
+.contacts-box {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 1.6rem;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: nowrap;
+
+  margin-bottom: spacing.$base * 0.8rem;
+
+  > *:not(:last-child) {
+    margin-right: spacing.$base * 0.8rem;
+  }
+}
+
+.social-medias {
+  display: flex;
+  flex-wrap: nowrap;
+
+  > *:not(:last-child) {
+    margin-right: spacing.$base * 0.6rem;
+  }
+}
+
+.social-media {
+  width: 3.2rem;
+  height: 3.2rem;
+
+  background-color: var(--color-white);
+  border-radius: 0.4rem;
+}
+
+.dots {
+  position: absolute;
+
+  color: var(--color-primary);
+
+  opacity: 0.4;
+}
+
+.dots-top-left {
+  composes: dots;
+
+  top: 0;
+  left: 0;
+}
+
+.dots-bottom-right {
+  composes: dots;
+
+  right: 0;
+  bottom: 0;
+}
+
+.desktop-dots {
+  display: none;
+
+  @include mixins.respond(tab-land) {
+    display: block;
+  }
+}
+
+.mobile-dots {
+  display: block;
+
+  @include mixins.respond(tab-land) {
+    display: none;
+  }
+}
+
+.desktop-dots-top-left {
+  composes: dots-top-left desktop-dots;
+}
+
+.mobile-dots-top-left {
+  composes: dots-top-left mobile-dots;
+}
+
+.desktop-dots-bottom-right {
+  composes: dots-bottom-right desktop-dots;
+}
+
+.mobile-dots-bottom-right {
+  composes: dots-bottom-right mobile-dots;
+}
+
+@include mixins.respond(702px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .logo-base {
+    margin-right: spacing.$base * 0.4rem;
+    margin-bottom: 0;
+  }
+
+  .contacts-box {
+    align-items: flex-end;
+
+    font-size: 1.8rem;
+  }
+}
+
+@include mixins.respond(tab-land) {
+  .footer {
+    padding-top: spacing.$base * 1rem;
+    padding-bottom: spacing.$base * 1rem;
+  }
+
+  .logo-icon {
+    width: 11.6rem;
+  }
+}
+
+@include mixins.respond(desk-small) {
+  .footer {
+    padding-top: spacing.$base * 1.5rem;
+    padding-bottom: spacing.$base * 1.5rem;
+  }
 }

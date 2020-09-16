@@ -19,6 +19,10 @@ function calculateLength({
   return count * size + space * 2 * Math.max(count - 1, 0);
 }
 
+function generatePatternId(randomData: any[]) {
+  return [Math.random(), ...randomData].join('-');
+}
+
 function CirclesPattern({ rows, columns, space, size, ...rest }: CirclesPatternProps) {
   const height = useMemo(() => calculateLength({ count: rows, size, space }), [
     rows,
@@ -37,11 +41,17 @@ function CirclesPattern({ rows, columns, space, size, ...rest }: CirclesPatternP
   const patternWidthPercent = 100 / columns;
   const patternHeightPercent = 100 / rows;
 
+  const patternId = useMemo(() => generatePatternId([radius, width, height]), [
+    radius,
+    width,
+    height,
+  ]);
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} {...rest}>
       <defs>
         <pattern
-          id="Pattern"
+          id={patternId}
           width={`${patternWidthPercent}%`}
           height={`${patternHeightPercent}%`}
           patternUnits="userSpaceOnUse"
@@ -55,7 +65,7 @@ function CirclesPattern({ rows, columns, space, size, ...rest }: CirclesPatternP
         </pattern>
       </defs>
 
-      <rect fill="url(#Pattern)" width="100%" height="100%" />
+      <rect fill={`url(#${patternId})`} width="100%" height="100%" />
     </svg>
   );
 }

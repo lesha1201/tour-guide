@@ -15,7 +15,6 @@ function VideoSection() {
           height="100%"
           frameBorder="0"
           allow="autoplay; fullscreen"
-          allowFullScreen
         />
         <CirclesPattern className={css.dotsBottomRight} rows={3} columns={10} />
       </div>

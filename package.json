@@ -6,7 +6,7 @@
   "scripts": {
     "develop": "concurrently \"gatsby develop -H 0.0.0.0\" \"npm run gql:codegen -- --watch\"",
     "build": "gatsby build",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",
     "start": "npm run develop",
     "lint": "eslint .",
