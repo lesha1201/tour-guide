@@ -1,0 +1,66 @@
+@use 'mixins';
+@use 'tokens/spacing';
+
+$excursions-space: spacing.$base * 0.4rem;
+
+.excursions {
+  display: flex;
+  margin-right: -$excursions-space;
+  margin-left: -$excursions-space;
+  padding-bottom: 1rem;
+  overflow: auto hidden;
+}
+
+.excursions-wrapper {
+  display: flex;
+  padding: 0 $excursions-space;
+
+  > *:not(:last-child) {
+    margin-right: spacing.$base * 0.6rem;
+  }
+}
+
+.excursion-card-wrapper {
+  min-width: 22rem;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  margin-top: spacing.$base * 0.5rem;
+
+  font-size: 1.2857em;
+}
+
+@include mixins.respond(tab-land) {
+  $excursion-margin: spacing.$base * 0.3rem;
+
+  .excursions {
+    flex-wrap: wrap;
+    margin: -$excursion-margin;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+
+  .excursions-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+
+    > *,
+    > *:not(:last-child) {
+      margin: $excursion-margin;
+    }
+  }
+
+  .excursion-card-wrapper {
+    flex: 1 1 calc(33.33% - #{$excursion-margin} * 4);
+  }
+
+  .button {
+    margin-top: spacing.$base * 0.7rem;
+    padding-right: spacing.$base * 2.5rem;
+    padding-left: spacing.$base * 2.5rem;
+  }
+}

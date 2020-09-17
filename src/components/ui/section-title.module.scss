@@ -4,7 +4,7 @@
 .base {
   position: relative;
 
-  margin-bottom: spacing.$base * 0.9rem;
+  margin-bottom: spacing.$base * 0.6rem;
 
   font-weight: 600;
   font-size: 2.4rem;
@@ -24,6 +24,8 @@
   }
 
   @include mixins.respond(tab-land) {
+    margin-bottom: spacing.$base * 0.9rem;
+
     font-size: 4rem;
 
     &::after {
