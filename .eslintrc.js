@@ -107,6 +107,7 @@ module.exports = {
     // NodeJS files
     {
       files: ['./*.js', 'jest/*.js', 'gatsby/*.js'],
+      excludedFiles: ['./gatsby-browser.js'],
       env: {
         browser: false,
       },

@@ -1,0 +1,84 @@
+@use 'mixins';
+@use 'tokens/colors';
+@use 'tokens/spacing';
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-image-box {
+  flex: 1 1 50%;
+}
+
+.gallery-image-wrapper {
+  position: relative;
+
+  padding-top: 56.19%;
+
+  &:hover {
+    .gallery-image-overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.gallery-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: spacing.$base * 0.5rem;
+
+  color: var(--color-white);
+
+  background-color: rgba(colors.$black, 0.6);
+  visibility: hidden;
+  cursor: zoom-in;
+  opacity: 0;
+
+  transition: all 0.2s;
+}
+
+.gallery-image-overlay-icon {
+  width: 2.4rem;
+}
+
+.gallery-image-overlay-title {
+  margin-top: spacing.$base * 0.2rem;
+
+  font-size: 1.6rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@include mixins.respond(tab-land) {
+  .gallery-image-box {
+    flex: 1 1 33.3333%;
+  }
+
+  .gallery-image-overlay-icon {
+    width: 3.6rem;
+  }
+
+  .gallery-image-overlay-title {
+    font-size: 2rem;
+  }
+}

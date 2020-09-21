@@ -30,4 +30,18 @@
   .text-white {
     color: var(--color-white);
   }
+
+  .btn-reset {
+    display: inline-flex;
+
+    font-size: 1em;
+    font-family: inherit;
+    white-space: nowrap;
+    text-decoration: none;
+
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    user-select: none;
+  }
 }

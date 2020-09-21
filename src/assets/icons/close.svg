@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+    stroke-linejoin="round" stroke-miterlimit="2" clip-rule="evenodd"
+    viewBox="0 0 512 512">
+    <path fill="currentColor"
+        d="M227.2 256L111.96 140.77a20.38 20.38 0 0128.81-28.8L256 227.2l115.24-115.24a20.38 20.38 0 0128.8 28.82L284.8 256l115.23 115.23a20.38 20.38 0 01-28.82 28.8L256 284.81 140.77 400.05a20.38 20.38 0 01-28.8-28.82L227.2 256z" />
+</svg>

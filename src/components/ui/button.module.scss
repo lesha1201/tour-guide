@@ -19,23 +19,16 @@
 }
 
 .common {
-  display: inline-flex;
+  composes: btn-reset from global;
+
   padding: 0.6em 1.55em;
 
   color: var(--color-white);
-  font-size: 1em;
-  font-family: inherit;
-  white-space: nowrap;
-  text-decoration: none;
 
-  border: 1px solid transparent;
   border-radius: 0.3em;
   outline: none;
-  cursor: pointer;
 
   transition: all 0.2s;
-
-  user-select: none;
 
   &:disabled {
     cursor: not-allowed;

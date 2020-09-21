@@ -1,0 +1,150 @@
+@use 'mixins';
+@use 'tokens/spacing';
+@use 'tokens/colors';
+
+$side-space: spacing.$base * 0.4rem;
+
+.modal-base {
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+
+  color: var(--color-white);
+}
+
+.lightbox-slider-wrapper {
+  position: relative;
+
+  flex-grow: 1;
+
+  overflow: hidden;
+}
+
+.lightbox-slider {
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox-loader {
+  @include mixins.transform-center;
+
+  z-index: -1;
+}
+
+.lightbox-bar {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  min-height: 6.8rem;
+  padding: $side-space;
+}
+
+.lightbox-counter {
+  @include mixins.transform-center;
+}
+
+.lightbox-toolbar {
+  margin-left: auto;
+}
+
+.lightbox-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  background-color: transparent;
+}
+
+.lightbox-button {
+  composes: btn-reset from global;
+
+  padding: 0.55em;
+
+  color: var(--color-white);
+  font-size: 2rem;
+
+  background-color: rgba(colors.$black, 0.7);
+  border-radius: 0.2em;
+
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: rgba(colors.$black, 0.9);
+  }
+}
+
+.lightbox-switch-button {
+  composes: lightbox-button;
+
+  position: absolute;
+  top: 50%;
+  z-index: 1000;
+
+  display: none;
+  padding: 0.55em;
+
+  font-size: 2rem;
+
+  transform: translateY(-50%);
+}
+
+.lightbox-back-button {
+  composes: lightbox-switch-button;
+
+  left: $side-space;
+}
+
+.lightbox-next-button {
+  composes: lightbox-switch-button;
+
+  right: $side-space;
+}
+
+.lightbox-image-title {
+  margin: 0 auto;
+
+  font-size: 2rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lightbox-switch-button {
+    display: inline-flex;
+  }
+}
+
+@include mixins.respond(tab-land) {
+  $side-space: spacing.$base * 0.5rem;
+
+  .lightbox-bar {
+    min-height: 10rem;
+    padding: $side-space;
+  }
+
+  .lightbox-button {
+    font-size: 2.8rem;
+  }
+
+  .lightbox-switch-button {
+    font-size: 5.6rem;
+  }
+
+  .lightbox-back-button {
+    left: $side-space;
+  }
+
+  .lightbox-next-button {
+    right: $side-space;
+  }
+
+  .lightbox-image-title {
+    font-size: 2.4rem;
+  }
+}

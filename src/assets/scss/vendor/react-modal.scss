@@ -1,0 +1,9 @@
+/* stylelint-disable selector-class-pattern */
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModal__Overlay {
+  z-index: 1000;
+}
