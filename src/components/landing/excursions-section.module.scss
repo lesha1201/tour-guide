@@ -29,8 +29,6 @@ $excursions-space: spacing.$base * 0.4rem;
 
 .button {
   margin-top: spacing.$base * 0.5rem;
-
-  font-size: 1.2857em;
 }
 
 @include mixins.respond(tab-land) {

@@ -116,6 +116,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-lodash',
     'gatsby-plugin-typescript',
   ],
 };

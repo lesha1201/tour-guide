@@ -5,6 +5,7 @@ import VideoSection from 'components/landing/video-section';
 import FeaturesSection from 'components/landing/features-section';
 import ExcursionsSection from 'components/landing/excursions-section';
 import GallerySection from 'components/landing/gallery-section';
+import TestimonialsSection from 'components/landing/testimonials-section';
 import Footer from 'components/footer';
 
 function IndexPage() {
@@ -15,6 +16,7 @@ function IndexPage() {
       <FeaturesSection />
       <ExcursionsSection />
       <GallerySection />
+      <TestimonialsSection />
       <Footer />
     </>
   );

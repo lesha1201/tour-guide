@@ -17,7 +17,9 @@ body,
 #___gatsby,
 #gatsby-focus-wrapper {
   height: 100%;
+  overflow-x: hidden;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 html {
@@ -26,7 +28,6 @@ html {
 
 body {
   box-sizing: border-box;
-  overflow-x: hidden;
 
   color: var(--color-text-primary);
   font-weight: 400;

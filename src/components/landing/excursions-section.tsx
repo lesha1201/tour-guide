@@ -71,7 +71,7 @@ function ExcursionsSection() {
           ))}
         </div>
       </div>
-      <Button className={css.button} isRounded>
+      <Button className={css.button} size="lg" isRounded>
         Смотреть все
       </Button>
     </Section>

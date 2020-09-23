@@ -1,0 +1,23 @@
+.base {
+  position: relative;
+
+  box-sizing: border-box;
+}
+
+.size-stretch {
+  width: 100%;
+  height: 100%;
+}
+
+.size-md {
+  width: 6.4rem;
+  height: 6.4rem;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: 100%;
+}

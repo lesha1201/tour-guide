@@ -1,8 +1,12 @@
 @use 'tokens/colors' as colors;
 
-@mixin btn-painted($name, $color, $hover-color) {
+@mixin btn-painted($name, $color, $hover-color, $is-text-inverse: false) {
   &.#{$name} {
     background-color: $color;
+
+    @if $is-text-inverse {
+      color: var(--color-black);
+    }
 
     &:not(:disabled):hover {
       background-color: $hover-color;
@@ -32,6 +36,7 @@
 
   &:disabled {
     cursor: not-allowed;
+    opacity: 0.4;
   }
 
   &:not(:disabled):focus {
@@ -44,8 +49,8 @@
     width: 100%;
   }
 
-  &.wide {
-    padding: 0.6em 2.1em;
+  &.lg {
+    font-size: 1.2857em;
   }
 
   &.rounded {
@@ -59,7 +64,7 @@
   composes: common;
 
   @include btn-painted('primary', var(--color-primary), var(--color-primary-dark));
-  @include btn-painted('white', var(--color-white), var(--color-white-dark));
+  @include btn-painted('white', var(--color-white), var(--color-white-dark), true);
 }
 
 .outlined {

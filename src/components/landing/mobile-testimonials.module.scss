@@ -1,0 +1,11 @@
+@use 'tokens/spacing';
+
+.controls {
+  > *:not(:last-child) {
+    margin-right: spacing.$base * 0.2rem;
+  }
+}
+
+.testimonial-wrapper {
+  margin: spacing.$base * 0.2rem 0;
+}

@@ -2,7 +2,7 @@
 export interface IButtonModuleScss {
   'common': string;
   'full': string;
-  'wide': string;
+  'lg': string;
   'rounded': string;
   'painted': string;
   'primary': string;

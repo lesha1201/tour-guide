@@ -9,7 +9,7 @@ export interface ButtonBaseProps<T extends React.ElementType> {
   as: T;
   variant: 'painted' | 'outlined';
   mainColor: 'primary' | 'white';
-  size?: 'wide' | 'full';
+  size?: 'full' | 'lg';
   isRounded?: boolean;
   children?: React.ReactNode;
 }

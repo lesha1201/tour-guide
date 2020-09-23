@@ -1,0 +1,76 @@
+@use 'mixins';
+@use 'tokens/spacing';
+
+$testimonial-item-space: spacing.$base * 0.4rem;
+
+.testimonials-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 80rem;
+  margin: -#{$testimonial-item-space / 2};
+  overflow: hidden;
+
+  &:not(:last-of-type) {
+    margin-bottom: $testimonial-item-space / 2;
+  }
+}
+
+.testimonial-item {
+  display: flex;
+  flex: 1 1 auto;
+  width: calc(50% - #{$testimonial-item-space});
+  margin: $testimonial-item-space / 2;
+}
+
+.more-testimonials-button {
+  display: flex;
+  margin-top: $testimonial-item-space;
+  margin-right: auto;
+  margin-left: auto;
+  overflow-anchor: none;
+}
+
+@include mixins.respond(tab-land) {
+  $testimonial-item-space: spacing.$base * 1rem;
+
+  .testimonials-group {
+    margin: -#{$testimonial-item-space / 2};
+
+    &:not(:last-of-type) {
+      margin-bottom: $testimonial-item-space / 2;
+    }
+  }
+
+  .testimonial-item {
+    width: calc(50% - #{$testimonial-item-space});
+    margin: $testimonial-item-space / 2;
+  }
+
+  .more-testimonials-button {
+    margin-top: $testimonial-item-space;
+    padding-right: spacing.$base * 2.5rem;
+    padding-left: spacing.$base * 2.5rem;
+  }
+}
+
+@include mixins.respond(desk-big) {
+  $testimonial-item-space: spacing.$base * 1.3rem;
+
+  .testimonials-group {
+    margin: -#{$testimonial-item-space / 2};
+
+    &:not(:last-of-type) {
+      margin-bottom: $testimonial-item-space / 2;
+    }
+  }
+
+  .testimonial-item {
+    width: calc(50% - #{$testimonial-item-space});
+    margin: $testimonial-item-space / 2;
+  }
+
+  .more-testimonials-button {
+    margin-top: $testimonial-item-space;
+  }
+}

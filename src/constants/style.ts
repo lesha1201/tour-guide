@@ -6,3 +6,10 @@ export const CSS_VARS = {
     white: 'var(--color-white)',
   },
 };
+
+/**
+ * Mirrors Media queries from `mixins/_respond.scss`
+ */
+export const MEDIA_QUERIES = {
+  tabLand: '(min-width: 56.25em)',
+};
