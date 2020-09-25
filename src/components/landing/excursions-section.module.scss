@@ -8,7 +8,8 @@ $excursions-space: spacing.$base * 0.4rem;
   margin-right: -$excursions-space;
   margin-left: -$excursions-space;
   padding-bottom: 1rem;
-  overflow: auto hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .excursions-wrapper {

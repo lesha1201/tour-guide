@@ -39,6 +39,7 @@ function Logo({ color, ...rest }: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 156.55 122.9"
       width="100%"
+      height="100%"
       {...rest}
     >
       <path
