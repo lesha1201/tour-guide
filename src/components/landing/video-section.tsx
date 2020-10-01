@@ -1,12 +1,14 @@
 import React from 'react';
 
 import CirclesPattern from 'components/circles-pattern';
-import Section from './section';
+import Section, { SectionProps } from './section';
 import * as css from './video-section.module.scss';
 
-function VideoSection() {
+export type VideoSectionProps = Partial<SectionProps>;
+
+function VideoSection(props: VideoSectionProps) {
   return (
-    <Section variant="secondary">
+    <Section {...props}>
       <div className={css.videoBox}>
         <CirclesPattern className={css.dotsTopLeft} rows={3} columns={10} />
         <iframe

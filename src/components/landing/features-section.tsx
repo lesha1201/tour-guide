@@ -1,9 +1,11 @@
 import React from 'react';
 
 import SectionTitle from 'components/ui/section-title';
-import Section from './section';
+import Section, { SectionProps } from './section';
 import Feature from './feature';
 import * as css from './features-section.module.scss';
+
+export type HeroSectionProps = Partial<SectionProps>;
 
 const FEATURES = [
   {
@@ -28,9 +30,9 @@ const FEATURES = [
   },
 ];
 
-function FeaturesSection() {
+function FeaturesSection(props: HeroSectionProps) {
   return (
-    <Section className={css.section} variant="primary">
+    <Section {...props} className={css.section}>
       <SectionTitle align="center">Преимущества</SectionTitle>
       <div className={css.features}>
         {FEATURES.map((feature, index) => (

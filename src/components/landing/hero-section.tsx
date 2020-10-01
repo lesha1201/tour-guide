@@ -7,9 +7,11 @@ import Button from 'components/ui/button';
 import { ReactComponent as ChevronDown } from 'assets/icons/chevron-down.svg';
 import * as css from './hero-section.module.scss';
 
-function HeroSection() {
+export type HeroSectionProps = React.HTMLAttributes<HTMLDivElement>;
+
+function HeroSection(props: HeroSectionProps) {
   return (
-    <div className={css.section}>
+    <div {...props} className={css.section}>
       <Header variant="light" />
 
       <div className={css.heroBox}>

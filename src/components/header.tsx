@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { ReactComponent as MenuIcon } from 'assets/icons/menu.svg';
 import { toggleBodyScroll } from 'utils/dom';
 import { PHONE_NUMBER } from 'constants/config';
+import { SECTIONS } from 'constants/sections';
 import Link from './ui/link';
 import ButtonIcon from './ui/button-icon';
 import LogoText from './logo-text';
@@ -13,22 +14,17 @@ export type HeaderProps = {
   variant?: 'default' | 'light';
 };
 
-const NAV_ITEMS = [
-  {
-    name: 'Item 1',
-  },
-  {
-    name: 'Item 2',
-  },
-  {
-    name: 'Item 3',
-  },
-];
+const NAV_ITEMS = SECTIONS.filter(({ isShownInMenu }) => isShownInMenu).map(
+  ({ name, id }) => ({
+    name,
+    href: `#${id}`,
+  }),
+);
 
 function Header({ variant }: HeaderProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const onClickMenu = useCallback(() => {
+  const toggleMenu = useCallback(() => {
     setIsExpanded(s => {
       if (!s) {
         toggleBodyScroll('hidden');
@@ -39,6 +35,22 @@ function Header({ variant }: HeaderProps) {
       return !s;
     });
   }, []);
+
+  const hideMenu = useCallback(() => {
+    setIsExpanded(s => {
+      toggleBodyScroll('auto');
+
+      return false;
+    });
+  }, []);
+
+  const onClickMenu = useCallback(() => {
+    toggleMenu();
+  }, [toggleMenu]);
+
+  const onClickMenuItem = useCallback(() => {
+    hideMenu();
+  }, [hideMenu]);
 
   const isLight = variant === 'light';
 
@@ -62,9 +74,14 @@ function Header({ variant }: HeaderProps) {
 
       <nav className={css.nav}>
         <ul className={css.navList}>
-          {NAV_ITEMS.map(({ name }, index) => (
+          {NAV_ITEMS.map(({ name, href }, index) => (
             <li key={index} className={css.navListItem}>
-              <Link className={css.navListItemLink} color="inherit" href="#">
+              <Link
+                className={css.navListItemLink}
+                onClick={onClickMenuItem}
+                color="inherit"
+                href={href}
+              >
                 {name}
               </Link>
             </li>

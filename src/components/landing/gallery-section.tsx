@@ -5,8 +5,10 @@ import imageTwo from 'static/landing-bg.jpg';
 import { ReactComponent as ZoomInIcon } from 'assets/icons/zoom-in.svg';
 import Lightbox from 'components/ui/lightbox';
 import SectionTitle from 'components/ui/section-title';
-import Section from './section';
+import Section, { SectionProps } from './section';
 import * as css from './gallery-section.module.scss';
+
+export type GallerySectionProps = Partial<SectionProps>;
 
 const GALLERY = [
   {
@@ -41,7 +43,7 @@ const LIGHTBOX_IMAGES = GALLERY.map(({ original, title }) => ({
   title,
 }));
 
-function GallerySection() {
+function GallerySection(props: GallerySectionProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0);
 
@@ -50,7 +52,7 @@ function GallerySection() {
   }, []);
 
   return (
-    <Section variant="primary">
+    <Section {...props}>
       <SectionTitle align="center">Галерея</SectionTitle>
       <div className={css.gallery}>
         {GALLERY.map((image, index) => (

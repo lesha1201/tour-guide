@@ -54,6 +54,7 @@ module.exports = {
     'unicorn/prefer-negative-index': 'error',
     'unicorn/prefer-number-properties': 'error',
     'react/prop-types': 'off',
+    'react/display-name': 'off',
   },
   settings: {
     react: {

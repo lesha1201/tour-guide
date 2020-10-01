@@ -3,13 +3,15 @@ import React from 'react';
 import { ReactComponent as TimerIcon } from 'assets/icons/timer.svg';
 import { EMAIL, PHONE_NUMBER } from 'constants/config';
 import { SectionTitle, Link, Input, Button, Textarea } from 'components/ui';
-import Section from './section';
+import Section, { SectionProps } from './section';
 import ContactItem from './contact-item';
 import * as css from './contacts-section.module.scss';
 
-function ContactsSection() {
+export type ContactsSectionProps = Partial<SectionProps>;
+
+function ContactsSection(props: ContactsSectionProps) {
   return (
-    <Section variant="primary">
+    <Section {...props}>
       <SectionTitle align="center">Контакты</SectionTitle>
 
       <div className={css.container}>

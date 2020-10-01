@@ -4,8 +4,10 @@ import landingBg from 'static/landing-bg.jpg';
 import SectionTitle from 'components/ui/section-title';
 import Button from 'components/ui/button';
 import ExcursionCard from 'components/excursion-card';
-import Section from './section';
+import Section, { SectionProps } from './section';
 import * as css from './excursions-section.module.scss';
+
+export type ExcursionsSectionProps = Partial<SectionProps>;
 
 const EXCURSIONS = [
   {
@@ -58,9 +60,9 @@ const EXCURSIONS = [
   },
 ];
 
-function ExcursionsSection() {
+function ExcursionsSection(props: ExcursionsSectionProps) {
   return (
-    <Section variant="secondary">
+    <Section {...props}>
       <SectionTitle align="center">Экскурсии</SectionTitle>
       <div className={css.excursions}>
         <div className={css.excursionsWrapper}>
