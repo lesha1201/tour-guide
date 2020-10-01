@@ -1,0 +1,21 @@
+@use 'tokens/spacing';
+@use 'tokens/colors';
+
+.base {
+  padding: 1.111111em 1.555555em;
+
+  font-size: 1em;
+  font-family: inherit;
+
+  border: 0.1rem solid rgba(colors.$black, 0.16);
+  border-radius: 0.222222em;
+
+  &:focus {
+    border-color: var(--color-primary);
+    outline: none;
+  }
+}
+
+.full-width {
+  width: 100%;
+}

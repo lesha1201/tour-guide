@@ -1,0 +1,20 @@
+@use 'tokens/spacing';
+
+.base {
+  display: flex;
+  align-items: center;
+
+  font-size: 1em;
+
+  > *:not(:last-child) {
+    margin-right: spacing.$base * 0.2rem;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  width: 2.222222em;
+  height: 2.222222em;
+
+  color: var(--color-text-primary);
+}

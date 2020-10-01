@@ -1,0 +1,53 @@
+@use 'mixins';
+@use 'tokens/spacing';
+
+$container-item-gap: spacing.$base * 0.7rem;
+
+.container {
+  max-width: 106rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -#{$container-item-gap / 2};
+}
+
+.grid-item {
+  flex: 1 1 100%;
+  margin: $container-item-gap / 2;
+
+  @include mixins.respond(tab-land) {
+    flex-basis: calc(50% - #{$container-item-gap});
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: spacing.$base * 0.6rem;
+
+  > *:not(:last-child) {
+    margin-bottom: spacing.$base * 0.4rem;
+  }
+}
+
+.contacts-row {
+  display: flex;
+
+  > *:not(:last-child) {
+    margin-right: spacing.$base * 0.4rem;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  > *:not(:last-child) {
+    margin-bottom: spacing.$base * 0.6rem;
+  }
+}
