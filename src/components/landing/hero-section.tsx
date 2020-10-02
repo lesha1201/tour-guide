@@ -4,6 +4,7 @@ import mainPhoto from 'static/photo.jpg';
 import Header from 'components/header';
 import Container from 'components/container';
 import Button from 'components/ui/button';
+import { EXCURSIONS_SECTION } from 'constants/sections';
 import { ReactComponent as ChevronDown } from 'assets/icons/chevron-down.svg';
 import * as css from './hero-section.module.scss';
 
@@ -22,7 +23,12 @@ function HeroSection(props: HeroSectionProps) {
           <div>
             <h1 className={css.heroTitle}>Индивидуальный гид по Санкт-Петербургу</h1>
             <div className={css.heroCta}>
-              <Button className={css.heroBtn} isRounded>
+              <Button
+                as="a"
+                className={css.heroBtn}
+                href={`#${EXCURSIONS_SECTION.id}`}
+                isRounded
+              >
                 Экскурсии
               </Button>
               <Button
