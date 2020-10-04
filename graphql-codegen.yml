@@ -1,6 +1,8 @@
 overwrite: true
 schema: 'http://localhost:8000/___graphql'
-documents: 'src/**/*.tsx'
+documents:
+  - src/**/*.tsx
+  - ./node_modules/gatsby*/!(node_modules)/**/*.js
 pluckConfig:
   modules:
     - name: gatsby

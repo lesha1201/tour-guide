@@ -2,6 +2,7 @@
 export interface IExcursionCardModuleScss {
   'card': string;
   'cover': string;
+  'coverImgWrapper': string;
   'coverImg': string;
   'content': string;
   'title': string;

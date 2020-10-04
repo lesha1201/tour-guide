@@ -670,9 +670,46 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
   | 'childMarkdownRemark___frontmatter___template'
-  | 'childMarkdownRemark___frontmatter___date'
+  | 'childMarkdownRemark___frontmatter___duration'
+  | 'childMarkdownRemark___frontmatter___price'
+  | 'childMarkdownRemark___frontmatter___createdAt'
   | 'childMarkdownRemark___frontmatter___description'
-  | 'childMarkdownRemark___frontmatter___socialImage'
+  | 'childMarkdownRemark___frontmatter___coverImage___sourceInstanceName'
+  | 'childMarkdownRemark___frontmatter___coverImage___absolutePath'
+  | 'childMarkdownRemark___frontmatter___coverImage___relativePath'
+  | 'childMarkdownRemark___frontmatter___coverImage___extension'
+  | 'childMarkdownRemark___frontmatter___coverImage___size'
+  | 'childMarkdownRemark___frontmatter___coverImage___prettySize'
+  | 'childMarkdownRemark___frontmatter___coverImage___modifiedTime'
+  | 'childMarkdownRemark___frontmatter___coverImage___accessTime'
+  | 'childMarkdownRemark___frontmatter___coverImage___changeTime'
+  | 'childMarkdownRemark___frontmatter___coverImage___birthTime'
+  | 'childMarkdownRemark___frontmatter___coverImage___root'
+  | 'childMarkdownRemark___frontmatter___coverImage___dir'
+  | 'childMarkdownRemark___frontmatter___coverImage___base'
+  | 'childMarkdownRemark___frontmatter___coverImage___ext'
+  | 'childMarkdownRemark___frontmatter___coverImage___name'
+  | 'childMarkdownRemark___frontmatter___coverImage___relativeDirectory'
+  | 'childMarkdownRemark___frontmatter___coverImage___dev'
+  | 'childMarkdownRemark___frontmatter___coverImage___mode'
+  | 'childMarkdownRemark___frontmatter___coverImage___nlink'
+  | 'childMarkdownRemark___frontmatter___coverImage___uid'
+  | 'childMarkdownRemark___frontmatter___coverImage___gid'
+  | 'childMarkdownRemark___frontmatter___coverImage___rdev'
+  | 'childMarkdownRemark___frontmatter___coverImage___ino'
+  | 'childMarkdownRemark___frontmatter___coverImage___atimeMs'
+  | 'childMarkdownRemark___frontmatter___coverImage___mtimeMs'
+  | 'childMarkdownRemark___frontmatter___coverImage___ctimeMs'
+  | 'childMarkdownRemark___frontmatter___coverImage___atime'
+  | 'childMarkdownRemark___frontmatter___coverImage___mtime'
+  | 'childMarkdownRemark___frontmatter___coverImage___ctime'
+  | 'childMarkdownRemark___frontmatter___coverImage___birthtime'
+  | 'childMarkdownRemark___frontmatter___coverImage___birthtimeMs'
+  | 'childMarkdownRemark___frontmatter___coverImage___blksize'
+  | 'childMarkdownRemark___frontmatter___coverImage___blocks'
+  | 'childMarkdownRemark___frontmatter___coverImage___publicURL'
+  | 'childMarkdownRemark___frontmatter___coverImage___id'
+  | 'childMarkdownRemark___frontmatter___coverImage___children'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
   | 'childMarkdownRemark___fileAbsolutePath'
@@ -1429,9 +1466,71 @@ export type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter___title'
   | 'frontmatter___template'
-  | 'frontmatter___date'
+  | 'frontmatter___duration'
+  | 'frontmatter___price'
+  | 'frontmatter___createdAt'
   | 'frontmatter___description'
-  | 'frontmatter___socialImage'
+  | 'frontmatter___coverImage___sourceInstanceName'
+  | 'frontmatter___coverImage___absolutePath'
+  | 'frontmatter___coverImage___relativePath'
+  | 'frontmatter___coverImage___extension'
+  | 'frontmatter___coverImage___size'
+  | 'frontmatter___coverImage___prettySize'
+  | 'frontmatter___coverImage___modifiedTime'
+  | 'frontmatter___coverImage___accessTime'
+  | 'frontmatter___coverImage___changeTime'
+  | 'frontmatter___coverImage___birthTime'
+  | 'frontmatter___coverImage___root'
+  | 'frontmatter___coverImage___dir'
+  | 'frontmatter___coverImage___base'
+  | 'frontmatter___coverImage___ext'
+  | 'frontmatter___coverImage___name'
+  | 'frontmatter___coverImage___relativeDirectory'
+  | 'frontmatter___coverImage___dev'
+  | 'frontmatter___coverImage___mode'
+  | 'frontmatter___coverImage___nlink'
+  | 'frontmatter___coverImage___uid'
+  | 'frontmatter___coverImage___gid'
+  | 'frontmatter___coverImage___rdev'
+  | 'frontmatter___coverImage___ino'
+  | 'frontmatter___coverImage___atimeMs'
+  | 'frontmatter___coverImage___mtimeMs'
+  | 'frontmatter___coverImage___ctimeMs'
+  | 'frontmatter___coverImage___atime'
+  | 'frontmatter___coverImage___mtime'
+  | 'frontmatter___coverImage___ctime'
+  | 'frontmatter___coverImage___birthtime'
+  | 'frontmatter___coverImage___birthtimeMs'
+  | 'frontmatter___coverImage___blksize'
+  | 'frontmatter___coverImage___blocks'
+  | 'frontmatter___coverImage___publicURL'
+  | 'frontmatter___coverImage___childImageSharp___id'
+  | 'frontmatter___coverImage___childImageSharp___children'
+  | 'frontmatter___coverImage___id'
+  | 'frontmatter___coverImage___parent___id'
+  | 'frontmatter___coverImage___parent___children'
+  | 'frontmatter___coverImage___children'
+  | 'frontmatter___coverImage___children___id'
+  | 'frontmatter___coverImage___children___children'
+  | 'frontmatter___coverImage___internal___content'
+  | 'frontmatter___coverImage___internal___contentDigest'
+  | 'frontmatter___coverImage___internal___description'
+  | 'frontmatter___coverImage___internal___fieldOwners'
+  | 'frontmatter___coverImage___internal___ignoreType'
+  | 'frontmatter___coverImage___internal___mediaType'
+  | 'frontmatter___coverImage___internal___owner'
+  | 'frontmatter___coverImage___internal___type'
+  | 'frontmatter___coverImage___childMarkdownRemark___id'
+  | 'frontmatter___coverImage___childMarkdownRemark___excerpt'
+  | 'frontmatter___coverImage___childMarkdownRemark___rawMarkdownBody'
+  | 'frontmatter___coverImage___childMarkdownRemark___fileAbsolutePath'
+  | 'frontmatter___coverImage___childMarkdownRemark___html'
+  | 'frontmatter___coverImage___childMarkdownRemark___htmlAst'
+  | 'frontmatter___coverImage___childMarkdownRemark___excerptAst'
+  | 'frontmatter___coverImage___childMarkdownRemark___headings'
+  | 'frontmatter___coverImage___childMarkdownRemark___timeToRead'
+  | 'frontmatter___coverImage___childMarkdownRemark___tableOfContents'
+  | 'frontmatter___coverImage___childMarkdownRemark___children'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -1561,12 +1660,14 @@ export type MarkdownRemarkFrontmatter = {
   __typename?: 'MarkdownRemarkFrontmatter';
   title?: Maybe<Scalars['String']>;
   template?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
+  duration?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Int']>;
+  createdAt?: Maybe<Scalars['Date']>;
   description?: Maybe<Scalars['String']>;
-  socialImage?: Maybe<Scalars['String']>;
+  coverImage?: Maybe<File>;
 };
 
-export type MarkdownRemarkFrontmatterDateArgs = {
+export type MarkdownRemarkFrontmatterCreatedAtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -1576,9 +1677,11 @@ export type MarkdownRemarkFrontmatterDateArgs = {
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   template?: Maybe<StringQueryOperatorInput>;
-  date?: Maybe<DateQueryOperatorInput>;
+  duration?: Maybe<StringQueryOperatorInput>;
+  price?: Maybe<IntQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
-  socialImage?: Maybe<StringQueryOperatorInput>;
+  coverImage?: Maybe<FileFilterInput>;
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -3017,6 +3120,190 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type GatsbyImageSharpFixedFragment = { __typename?: 'ImageSharpFixed' } & Pick<
+  ImageSharpFixed,
+  'base64' | 'width' | 'height' | 'src' | 'srcSet'
+>;
+
+export type GatsbyImageSharpFixed_TracedSvgFragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpFixed_WithWebpFragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<
+  ImageSharpFixed,
+  'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+>;
+
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<
+  ImageSharpFixed,
+  'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+>;
+
+export type GatsbyImageSharpFixed_NoBase64Fragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = {
+  __typename?: 'ImageSharpFixed';
+} & Pick<
+  ImageSharpFixed,
+  'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+>;
+
+export type GatsbyImageSharpFluidFragment = { __typename?: 'ImageSharpFluid' } & Pick<
+  ImageSharpFluid,
+  'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+>;
+
+export type GatsbyImageSharpFluidLimitPresentationSizeFragment = {
+  __typename?: 'ImageSharpFluid';
+} & {
+  maxHeight: ImageSharpFluid['presentationHeight'];
+  maxWidth: ImageSharpFluid['presentationWidth'];
+};
+
+export type GatsbyImageSharpFluid_TracedSvgFragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpFluid_WithWebpFragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<
+  ImageSharpFluid,
+  'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
+>;
+
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<
+  ImageSharpFluid,
+  'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
+>;
+
+export type GatsbyImageSharpFluid_NoBase64Fragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = {
+  __typename?: 'ImageSharpFluid';
+} & Pick<
+  ImageSharpFluid,
+  'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
+>;
+
+export type GatsbyImageSharpResolutionsFragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<ImageSharpResolutions, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpResolutions_TracedSvgFragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<ImageSharpResolutions, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpResolutions_WithWebpFragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<
+  ImageSharpResolutions,
+  'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+>;
+
+export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<
+  ImageSharpResolutions,
+  'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+>;
+
+export type GatsbyImageSharpResolutions_NoBase64Fragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<ImageSharpResolutions, 'width' | 'height' | 'src' | 'srcSet'>;
+
+export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = {
+  __typename?: 'ImageSharpResolutions';
+} & Pick<
+  ImageSharpResolutions,
+  'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+>;
+
+export type GatsbyImageSharpSizesFragment = { __typename?: 'ImageSharpSizes' } & Pick<
+  ImageSharpSizes,
+  'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+>;
+
+export type GatsbyImageSharpSizes_TracedSvgFragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<ImageSharpSizes, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpSizes_WithWebpFragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<
+  ImageSharpSizes,
+  'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
+>;
+
+export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<
+  ImageSharpSizes,
+  'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
+>;
+
+export type GatsbyImageSharpSizes_NoBase64Fragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = {
+  __typename?: 'ImageSharpSizes';
+} & Pick<
+  ImageSharpSizes,
+  'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
+>;
+
+export type PagesQueryQueryVariables = Exact<{ [key: string]: never }>;
+
+export type PagesQueryQuery = { __typename?: 'Query' } & {
+  allSitePage: { __typename?: 'SitePageConnection' } & {
+    nodes: Array<{ __typename?: 'SitePage' } & Pick<SitePage, 'path'>>;
+  };
+};
+
+export type ExcursionsSection_ExcursionsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ExcursionsSection_ExcursionsQuery = { __typename?: 'Query' } & {
+  allMarkdownRemark: { __typename?: 'MarkdownRemarkConnection' } & {
+    nodes: Array<
+      { __typename?: 'MarkdownRemark' } & Pick<MarkdownRemark, 'id'> & {
+          fields?: Maybe<
+            { __typename?: 'MarkdownRemarkFields' } & Pick<MarkdownRemarkFields, 'slug'>
+          >;
+          frontmatter?: Maybe<
+            { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
+              MarkdownRemarkFrontmatter,
+              'description' | 'duration' | 'price' | 'title'
+            > & {
+                coverImage?: Maybe<
+                  { __typename?: 'File' } & {
+                    childImageSharp?: Maybe<
+                      { __typename?: 'ImageSharp' } & {
+                        fluid?: Maybe<
+                          {
+                            __typename?: 'ImageSharpFluid';
+                          } & GatsbyImageSharpFluid_WithWebpFragment
+                        >;
+                      }
+                    >;
+                  }
+                >;
+              }
+          >;
+        }
+    >;
+  };
+};
+
 export type ExcursionBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -3030,7 +3317,7 @@ export type ExcursionBySlugQuery = { __typename?: 'Query' } & {
         frontmatter?: Maybe<
           { __typename?: 'MarkdownRemarkFrontmatter' } & Pick<
             MarkdownRemarkFrontmatter,
-            'date' | 'description' | 'title' | 'socialImage'
+            'createdAt' | 'description' | 'title'
           >
         >;
       }

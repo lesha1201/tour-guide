@@ -32,10 +32,9 @@ export const query = graphql`
         slug
       }
       frontmatter {
-        date
+        createdAt
         description
         title
-        socialImage
       }
     }
   }

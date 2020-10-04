@@ -22,6 +22,7 @@ $excursions-space: spacing.$base * 0.4rem;
 }
 
 .excursion-card-wrapper {
+  display: flex;
   min-width: 22rem;
 
   color: inherit;
