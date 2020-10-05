@@ -1,0 +1,14 @@
+@use 'mixins';
+@use 'tokens/spacing';
+
+.container {
+  padding-top: spacing.$base * 0.5rem;
+  padding-bottom: spacing.$base * 1.2rem;
+}
+
+@include mixins.respond(desk-small) {
+  .container {
+    padding-top: spacing.$base * 1.2rem;
+    padding-bottom: spacing.$base * 1.5rem;
+  }
+}

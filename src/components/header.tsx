@@ -17,7 +17,7 @@ export type HeaderProps = {
 const NAV_ITEMS = SECTIONS.filter(({ isShownInMenu }) => isShownInMenu).map(
   ({ name, id }) => ({
     name,
-    href: `#${id}`,
+    href: `/#${id}`,
   }),
 );
 

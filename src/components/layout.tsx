@@ -1,19 +1,19 @@
 import React from 'react';
 
-import Header from './header';
-import Footer from './footer';
 import * as css from './layout.module.scss';
 
 export type LayoutProps = {
-  children: React.ReactNode;
+  header: React.ReactNode;
+  content: React.ReactNode;
+  footer: React.ReactNode;
 };
 
-function Layout({ children }: LayoutProps) {
+function Layout({ header, content, footer }: LayoutProps) {
   return (
     <div className={css.wrapper}>
-      <Header />
-      <main className={css.content}>{children}</main>
-      <Footer />
+      {header}
+      <main className={css.content}>{content}</main>
+      {footer}
     </div>
   );
 }

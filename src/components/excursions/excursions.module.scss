@@ -1,0 +1,38 @@
+@use 'mixins';
+@use 'tokens/spacing';
+
+$excursion-margin: spacing.$base * 0.3rem;
+
+.excursions {
+  display: flex;
+  margin: -$excursion-margin;
+}
+
+.excursions-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    margin: $excursion-margin;
+  }
+}
+
+.excursion-card-wrapper {
+  display: flex;
+  width: 100%;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+@include mixins.respond(tab-port) {
+  .excursion-card-wrapper {
+    width: calc(50% - #{$excursion-margin * 2});
+  }
+}
+
+@include mixins.respond(tab-land) {
+  .excursion-card-wrapper {
+    width: calc(33.33% - #{$excursion-margin * 2});
+  }
+}

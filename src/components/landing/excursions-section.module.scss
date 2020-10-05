@@ -37,7 +37,6 @@ $excursions-space: spacing.$base * 0.4rem;
   $excursion-margin: spacing.$base * 0.3rem;
 
   .excursions {
-    flex-wrap: wrap;
     margin: -$excursion-margin;
     padding-bottom: 0;
     overflow: hidden;
@@ -55,7 +54,7 @@ $excursions-space: spacing.$base * 0.4rem;
   }
 
   .excursion-card-wrapper {
-    flex: 1 1 calc(33.33% - #{$excursion-margin} * 4);
+    width: calc(33.33% - #{$excursion-margin * 2});
   }
 
   .button {

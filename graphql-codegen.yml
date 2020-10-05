@@ -2,6 +2,7 @@ overwrite: true
 schema: 'http://localhost:8000/___graphql'
 documents:
   - src/**/*.tsx
+  - src/graphql/**/*.ts
   - ./node_modules/gatsby*/!(node_modules)/**/*.js
 pluckConfig:
   modules:
