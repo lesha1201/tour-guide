@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 
 .ReactModal__Body--open {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .ReactModal__Overlay {
