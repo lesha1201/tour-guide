@@ -13,13 +13,10 @@ export type ExcursionsSectionProps = Partial<SectionProps>;
 
 function ExcursionsSection(props: ExcursionsSectionProps) {
   const {
-    allMarkdownRemark: { nodes: excursions },
+    allMdx: { nodes: excursions },
   } = useStaticQuery<ExcursionsSection_ExcursionsQuery>(graphql`
     query ExcursionsSection_Excursions {
-      allMarkdownRemark(
-        limit: 6
-        sort: { fields: [frontmatter___createdAt], order: [DESC] }
-      ) {
+      allMdx(limit: 6, sort: { fields: [frontmatter___createdAt], order: [DESC] }) {
         nodes {
           id
           fields {

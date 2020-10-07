@@ -1,9 +1,7 @@
-@use 'mixins' as mixins;
-@use 'tokens/spacing' as spacing;
+@use 'mixins';
+@use 'tokens/spacing';
 
 .header {
-  composes: container from global;
-
   position: relative;
   z-index: 10;
 

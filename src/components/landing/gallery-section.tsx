@@ -1,49 +1,75 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import imageOne from 'static/media/image-1.jpg';
-import imageTwo from 'static/landing-bg.jpg';
-import { ReactComponent as ZoomInIcon } from 'assets/icons/zoom-in.svg';
-import Lightbox from 'components/ui/lightbox';
-import SectionTitle from 'components/ui/section-title';
+import {
+  GallerySection_GalleryQuery,
+  GatsbyImageSharpFluid_WithWebpFragment,
+} from 'types/graphql';
+import GalleryItem, { GalleryItemProps } from 'components/gallery-item';
+import { Lightbox, SectionTitle } from 'components/ui';
 import Section, { SectionProps } from './section';
 import * as css from './gallery-section.module.scss';
 
 export type GallerySectionProps = Partial<SectionProps>;
 
-const GALLERY = [
-  {
-    original: imageOne,
-    preview: imageOne,
-    title: 'Изображение 1',
-  },
-  {
-    original: imageTwo,
-    preview: imageTwo,
-  },
-  {
-    original: imageOne,
-    preview: imageOne,
-  },
-  {
-    original: imageTwo,
-    preview: imageTwo,
-  },
-  {
-    original: imageOne,
-    preview: imageOne,
-  },
-  {
-    original: imageTwo,
-    preview: imageTwo,
-  },
-];
+type GalleryFluidImage = GatsbyImageSharpFluid_WithWebpFragment;
 
-const LIGHTBOX_IMAGES = GALLERY.map(({ original, title }) => ({
-  src: original,
-  title,
-}));
+type GalleryOriginalImage = { src: string };
+
+type GalleryImage = {
+  title?: string;
+  image: {
+    childImageSharp: {
+      fluid: GalleryFluidImage;
+      original: GalleryOriginalImage;
+    };
+  };
+};
+
+type FilteredGallery = GalleryImage[];
+
+function filterGallery(gallery: GallerySection_GalleryQuery['allGalleryYaml']['nodes']) {
+  return gallery.filter(
+    ({ image }) => image?.childImageSharp?.fluid && image.childImageSharp.original?.src,
+  ) as FilteredGallery;
+}
+
+function convertToLightboxImages(gallery: FilteredGallery) {
+  return gallery.map(({ image, title }) => ({
+    title,
+    src: image.childImageSharp.original.src,
+  }));
+}
 
 function GallerySection(props: GallerySectionProps) {
+  const {
+    allGalleryYaml: { nodes: gallery },
+  } = useStaticQuery<GallerySection_GalleryQuery>(graphql`
+    query GallerySection_Gallery {
+      allGalleryYaml(limit: 6) {
+        nodes {
+          title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 478) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+              original {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const filteredGallery = useMemo(() => filterGallery(gallery), [gallery]);
+
+  const lightboxImages = useMemo(() => convertToLightboxImages(filteredGallery), [
+    filteredGallery,
+  ]);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0);
 
@@ -55,7 +81,7 @@ function GallerySection(props: GallerySectionProps) {
     <Section {...props}>
       <SectionTitle align="center">Галерея</SectionTitle>
       <div className={css.gallery}>
-        {GALLERY.map((image, index) => (
+        {filteredGallery.map(({ title, image }, index) => (
           <div
             key={index}
             className={css.galleryImageBox}
@@ -64,13 +90,10 @@ function GallerySection(props: GallerySectionProps) {
               setLightboxInitialIndex(index);
             }}
           >
-            <div className={css.galleryImageWrapper}>
-              <img className={css.galleryImage} src={image.preview} />
-              <div className={css.galleryImageOverlay}>
-                <ZoomInIcon className={css.galleryImageOverlayIcon} />
-                <div className={css.galleryImageOverlayTitle}>Название</div>
-              </div>
-            </div>
+            <GalleryItem
+              image={image.childImageSharp as GalleryItemProps['image']}
+              title={title}
+            />
           </div>
         ))}
       </div>
@@ -78,7 +101,7 @@ function GallerySection(props: GallerySectionProps) {
       <Lightbox
         isOpen={isModalOpen}
         onClose={lightboxOnClose}
-        images={LIGHTBOX_IMAGES}
+        images={lightboxImages}
         initialIndex={lightboxInitialIndex}
       />
     </Section>

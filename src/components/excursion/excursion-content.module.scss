@@ -1,0 +1,17 @@
+@use 'mixins';
+@use 'tokens/spacing';
+
+.properties {
+  display: flex;
+  margin-bottom: spacing.$base * 0.3rem;
+
+  > *:not(:last-child) {
+    margin-right: 1.333333em;
+  }
+}
+
+@include mixins.respond(desk-small) {
+  .content {
+    padding-left: spacing.$base * 0.5rem;
+  }
+}

@@ -23,6 +23,11 @@ body {
   font-weight: 400;
   font-size: 1.4rem;
   font-family: 'Nunito', sans-serif;
+  line-height: 1.5;
+
+  @include mixins.respond(desk-small) {
+    font-size: 1.6rem;
+  }
 
   @include mixins.respond(desk-big) {
     font-size: 1.8rem;

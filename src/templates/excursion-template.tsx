@@ -2,39 +2,43 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import { ExcursionBySlugQuery } from 'types/graphql';
+import Layout from 'components/layout';
+import Header from 'components/header';
+import Footer from 'components/footer';
+import Excursion from 'components/excursion/excursion';
 
 type ExcursionTemplateProps = {
   data: ExcursionBySlugQuery;
 };
 
 function ExcursionTemplate({ data }: ExcursionTemplateProps) {
-  if (!data.markdownRemark) {
+  if (!data.mdx) {
     return null;
   }
 
-  const { frontmatter, html } = data.markdownRemark;
-  const { title } = frontmatter || {};
-
   return (
-    <div>
-      {title && <h1>{title}</h1>}
-      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-    </div>
+    <Layout
+      header={<Header variant="default" />}
+      content={<Excursion excursion={data.mdx} />}
+      footer={<Footer />}
+    />
   );
 }
 
 export const query = graphql`
   query ExcursionBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
-      fields {
-        slug
-      }
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
-        createdAt
-        description
         title
+        duration
+        price
+        coverImage {
+          ...ExcursionCover
+        }
+        gallery {
+          ...ExcursionGalleryImage
+        }
       }
     }
   }

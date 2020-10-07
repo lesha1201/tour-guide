@@ -2,29 +2,33 @@ import { FluidObject } from 'gatsby-image';
 
 import {
   GatsbyImageSharpFluidFragment,
-  MarkdownRemarkFrontmatter,
+  MdxFrontmatter,
   Maybe,
+  ExcursionGalleryImageFragment,
 } from 'types/graphql';
 
-type ExcursionFrontmatter = Pick<
-  MarkdownRemarkFrontmatter,
-  'title' | 'description' | 'price' | 'duration'
-> & {
-  coverImage?: Maybe<{
-    childImageSharp?: Maybe<{
-      fluid?: Maybe<GatsbyImageSharpFluidFragment>;
-    }>;
-  }>;
-};
+type ExcursionFrontmatter =
+  | Maybe<
+      Pick<MdxFrontmatter, 'title' | 'description' | 'price' | 'duration'> & {
+        coverImage?: Maybe<{
+          childImageSharp?: Maybe<{
+            fluid?: Maybe<GatsbyImageSharpFluidFragment>;
+          }>;
+        }>;
+        gallery?: Maybe<Array<Maybe<ExcursionGalleryImageFragment>>>;
+      }
+    >
+  | undefined;
 
 export function formatExcursionFrontmatterData(data: ExcursionFrontmatter) {
   return {
     coverImage: {
-      fluid: (data.coverImage?.childImageSharp?.fluid as FluidObject) || undefined,
+      fluid: (data?.coverImage?.childImageSharp?.fluid as FluidObject) || undefined,
     },
-    title: data.title || '',
-    duration: data.duration || undefined,
-    price: data.price || 0,
-    description: data.description || '',
+    gallery: data?.gallery?.map(image => image?.childImageSharp) || [],
+    title: data?.title || '',
+    duration: data?.duration || undefined,
+    price: data?.price || 0,
+    description: data?.description || '',
   };
 }

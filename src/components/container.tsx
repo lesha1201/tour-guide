@@ -1,10 +1,34 @@
 import React from 'react';
 import clsx from 'clsx';
 
-export type ContainerProps = React.HTMLAttributes<HTMLDivElement>;
+import { OverwritableType } from 'types/common';
+import * as css from './container.module.scss';
 
-function Container({ className, ...rest }: ContainerProps) {
-  return <div className={clsx('container', className)} {...rest} />;
+export type ContainerBaseProps<T extends React.ElementType> = {
+  /** Element type (React component or string) that will be used */
+  as: T;
+  variant: 'default' | 'page';
+};
+
+export type ContainerProps<T extends React.ElementType = 'div'> = OverwritableType<
+  ContainerBaseProps<T>,
+  T
+>;
+
+function Container<T extends React.ElementType = 'div'>({
+  as,
+  className,
+  variant,
+  ...rest
+}: ContainerProps<T>) {
+  const ElementType: React.ElementType = as;
+
+  return <ElementType className={clsx(css[variant], className)} {...rest} />;
 }
+
+Container.defaultProps = {
+  as: 'div',
+  variant: 'default',
+};
 
 export default Container;

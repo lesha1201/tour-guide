@@ -5,9 +5,9 @@ import { ReactComponent as MenuIcon } from 'assets/icons/menu.svg';
 import { toggleBodyScroll } from 'utils/dom';
 import { PHONE_NUMBER } from 'constants/config';
 import { SECTIONS } from 'constants/sections';
-import Link from './ui/link';
-import ButtonIcon from './ui/button-icon';
+import { Link, ButtonIcon } from './ui';
 import LogoText from './logo-text';
+import Container from './container';
 import * as css from './header.module.scss';
 
 export type HeaderProps = {
@@ -61,7 +61,7 @@ function Header({ variant }: HeaderProps) {
   });
 
   return (
-    <header className={headerCn}>
+    <Container as="header" className={headerCn}>
       <div className={css.mobHeader}>
         <LogoText color={isExpanded ? 'primary' : isLight ? 'white' : undefined} />
 
@@ -94,7 +94,7 @@ function Header({ variant }: HeaderProps) {
           {PHONE_NUMBER.pretty}
         </Link>
       </div>
-    </header>
+    </Container>
   );
 }
 

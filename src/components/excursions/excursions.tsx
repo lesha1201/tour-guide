@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 
 import {
   ExcursionCardCoverFragment,
-  MarkdownRemark,
-  MarkdownRemarkFields,
-  MarkdownRemarkFrontmatter,
+  Mdx,
+  MdxFields,
+  MdxFrontmatter,
   Maybe,
 } from 'types/graphql';
 import ExcursionCard from 'components/excursion-card';
@@ -14,13 +14,10 @@ import * as css from './excursions.module.scss';
 
 export type ExcursionsProps = {
   excursions: Array<
-    Pick<MarkdownRemark, 'id'> & {
-      fields?: Maybe<Pick<MarkdownRemarkFields, 'slug'>>;
+    Pick<Mdx, 'id'> & {
+      fields?: Maybe<Pick<MdxFields, 'slug'>>;
       frontmatter?: Maybe<
-        Pick<
-          MarkdownRemarkFrontmatter,
-          'description' | 'duration' | 'price' | 'title'
-        > & {
+        Pick<MdxFrontmatter, 'description' | 'duration' | 'price' | 'title'> & {
           coverImage?: Maybe<ExcursionCardCoverFragment>;
         }
       >;

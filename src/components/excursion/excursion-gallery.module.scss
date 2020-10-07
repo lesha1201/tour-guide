@@ -1,0 +1,28 @@
+@use 'mixins';
+
+.gallery {
+  composes: ignore-container-padding from global;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-image-box {
+  width: 50%;
+}
+
+@include mixins.respond(tab-land) {
+  .gallery-image-box {
+    width: 33.333333%;
+  }
+}
+
+@include mixins.respond(desk-small) {
+  .gallery {
+    margin: 0;
+  }
+
+  .gallery-image-box {
+    width: 50%;
+  }
+}

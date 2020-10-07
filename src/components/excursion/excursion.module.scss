@@ -1,0 +1,22 @@
+@use 'mixins';
+@use 'tokens/spacing';
+
+$gap: spacing.$base * 0.6rem;
+$half-gap: $gap / 2;
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -#{$half-gap};
+}
+
+.grid-item {
+  width: 100%;
+  margin: $half-gap;
+}
+
+@include mixins.respond(desk-small) {
+  .grid-item {
+    width: calc(50% - #{$gap});
+  }
+}

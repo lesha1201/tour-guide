@@ -15,3 +15,26 @@ export const EXCURSION_CARD_COVER_FRAGMENT = graphql`
     }
   }
 `;
+
+export const EXCURSION_COVER_FRAGMENT = graphql`
+  fragment ExcursionCover on File {
+    childImageSharp {
+      fluid(maxWidth: 1480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+`;
+
+export const EXCURSION_GALLERY_IMAGE_FRAGMENT = graphql`
+  fragment ExcursionGalleryImage on File {
+    childImageSharp {
+      fluid(maxWidth: 352) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+      original {
+        src
+      }
+    }
+  }
+`;

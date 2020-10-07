@@ -6,7 +6,7 @@ const createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             frontmatter {
@@ -21,7 +21,7 @@ const createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const { edges } = result.data.allMarkdownRemark;
+  const { edges } = result.data.allMdx;
 
   _.each(edges, edge => {
     const nodeTemplate = _.get(edge, 'node.frontmatter.template');

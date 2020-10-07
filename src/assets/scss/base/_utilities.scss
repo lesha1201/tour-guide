@@ -1,41 +1,14 @@
-@use '../tokens/colors' as colors;
+@use '../mixins';
+@use '../tokens/colors';
+@use '../tokens/spacing';
 
 :global {
-  .text-inherit {
-    color: inherit;
-  }
-
-  // text-primary
-  .text-t-primary {
-    color: var(--color-text-primary);
-  }
-
-  // text-secondary
-  .text-t-secondary {
-    color: var(--color-text-secondary);
-  }
-
-  .text-primary {
-    color: var(--color-primary);
-  }
-
-  .text-secondary {
-    color: var(--color-secondary);
-  }
-
-  .text-black {
-    color: var(--color-black);
-  }
-
-  .text-white {
-    color: var(--color-white);
-  }
-
   .btn-reset {
     display: inline-flex;
 
     font-size: 1em;
     font-family: inherit;
+    line-height: 1;
     white-space: nowrap;
     text-decoration: none;
 
@@ -43,5 +16,23 @@
     cursor: pointer;
 
     user-select: none;
+  }
+
+  .abs-stretch {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .ignore-container-padding {
+    margin-right: -#{spacing.$container-sm};
+    margin-left: -#{spacing.$container-sm};
+
+    @include mixins.respond(tab-land) {
+      margin-right: -#{spacing.$container-md};
+      margin-left: -#{spacing.$container-md};
+    }
   }
 }
