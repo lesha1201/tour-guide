@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import clsx from 'clsx';
+import { Link as RouterLink } from 'gatsby';
 
 import { ReactComponent as MenuIcon } from 'assets/icons/menu.svg';
 import { toggleBodyScroll } from 'utils/dom';
@@ -63,7 +64,9 @@ function Header({ variant }: HeaderProps) {
   return (
     <Container as="header" className={headerCn}>
       <div className={css.mobHeader}>
-        <LogoText color={isExpanded ? 'primary' : isLight ? 'white' : undefined} />
+        <RouterLink className={css.logoLink} to="/">
+          <LogoText color={isExpanded ? 'primary' : isLight ? 'white' : undefined} />
+        </RouterLink>
 
         <div className={css.mobNav}>
           <ButtonIcon className={css.mobNavIcon} onClick={onClickMenu}>
@@ -77,10 +80,11 @@ function Header({ variant }: HeaderProps) {
           {NAV_ITEMS.map(({ name, href }, index) => (
             <li key={index} className={css.navListItem}>
               <Link
+                as={RouterLink}
                 className={css.navListItemLink}
                 onClick={onClickMenuItem}
                 color="inherit"
-                href={href}
+                to={href}
               >
                 {name}
               </Link>

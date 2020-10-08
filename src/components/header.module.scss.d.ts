@@ -10,6 +10,7 @@ export interface IHeaderModuleScss {
   'ctaBlock': string;
   'mobHeader': string;
   'mobNavIcon': string;
+  'logoLink': string;
   'navListItemLink': string;
 }
 declare const styles: IHeaderModuleScss;
