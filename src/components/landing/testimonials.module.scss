@@ -19,6 +19,7 @@ $testimonial-item-space: spacing.$base * 0.4rem;
 .testimonial-item {
   display: flex;
   flex: 1 1 auto;
+  flex-direction: column;
   width: calc(50% - #{$testimonial-item-space});
   margin: $testimonial-item-space / 2;
 }

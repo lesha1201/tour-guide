@@ -38,3 +38,21 @@ export const EXCURSION_GALLERY_IMAGE_FRAGMENT = graphql`
     }
   }
 `;
+
+export const TESTIMONIAL_FRAGMENT = graphql`
+  fragment Testimonial on TestimonialsYaml {
+    id
+    fullName
+    avatar {
+      childImageSharp {
+        fixed(width: 64, height: 64, cropFocus: CENTER) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    excursion {
+      name
+    }
+    text
+  }
+`;

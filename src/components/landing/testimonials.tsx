@@ -1,13 +1,13 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import _ from 'lodash';
 
-import Button from 'components/ui/button';
+import { TestimonialFragment } from 'types/graphql';
+import { Button } from 'components/ui';
 import Testimonial from 'components/testimonial';
-import { TestimonialData } from 'types/common';
 import * as css from './testimonials.module.scss';
 
 type TestimonialsProps = {
-  testimonials: TestimonialData[];
+  testimonials: TestimonialFragment[];
 };
 
 const TESTIMONIALS_GROUP_SIZE = 3;

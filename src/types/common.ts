@@ -11,12 +11,3 @@ export type ComponentProps<T> = T extends
   | React.Component<infer P>
   ? JSX.LibraryManagedAttributes<T, P>
   : never;
-
-export type TestimonialData = {
-  fullName: string;
-  avatar: string;
-  excursion: {
-    name: string;
-  };
-  text: string;
-};

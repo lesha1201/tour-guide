@@ -3,23 +3,32 @@ import React from 'react';
 
 import * as css from './avatar.module.scss';
 
-export type AvatarProps = React.HTMLAttributes<HTMLDivElement> & {
-  src: string;
-  size: 'md' | 'stretch';
-};
+/* -- AvatarImg */
 
-function Avatar({ size, className, src, ...domAttrs }: AvatarProps) {
+export type AvatarImgProps = React.ImgHTMLAttributes<HTMLImageElement>;
+
+function AvatarImg({ className, ...rest }: AvatarImgProps) {
+  return <img className={clsx(className, css.image)} alt="Avatar" {...rest} />;
+}
+
+/* -- Avatar */
+
+export type AvatarProps = React.HTMLAttributes<HTMLDivElement> & {
+  size: 'md' | 'stretch';
+  src?: string;
+} & ({ src: string } | { children: React.ReactNode });
+
+function Avatar({ size, className, src, children, ...domAttrs }: AvatarProps) {
   const cn = {
     base: clsx(className, css.base, {
       [css.sizeMd]: size === 'md',
       [css.sizeStretch]: size === 'stretch',
     }),
-    image: clsx(css.image),
   };
 
   return (
     <div className={cn.base} {...domAttrs}>
-      <img className={cn.image} alt="Avatar" src={src} />
+      {src ? <AvatarImg src={src} /> : children}
     </div>
   );
 }
@@ -27,5 +36,7 @@ function Avatar({ size, className, src, ...domAttrs }: AvatarProps) {
 Avatar.defaultProps = {
   size: 'md',
 };
+
+Avatar.Img = AvatarImg;
 
 export default Avatar;

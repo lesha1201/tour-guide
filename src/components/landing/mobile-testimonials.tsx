@@ -2,13 +2,13 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import { ReactComponent as ChevronLeft } from 'assets/icons/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/icons/chevron-right.svg';
-import { TestimonialData } from 'types/common';
+import { TestimonialFragment } from 'types/graphql';
 import Button from 'components/ui/button';
 import Testimonial from 'components/testimonial';
 import * as css from './mobile-testimonials.module.scss';
 
 export type MobileTestimonialsProps = {
-  testimonials: TestimonialData[];
+  testimonials: TestimonialFragment[];
 };
 
 function MobileTestimonials({ testimonials }: MobileTestimonialsProps) {

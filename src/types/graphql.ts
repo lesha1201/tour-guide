@@ -378,6 +378,7 @@ export type File = Node & {
   internal: Internal;
   childMdx?: Maybe<Mdx>;
   childrenGalleryYaml?: Maybe<Array<Maybe<GalleryYaml>>>;
+  childrenTestimonialsYaml?: Maybe<Array<Maybe<TestimonialsYaml>>>;
 };
 
 export type FileModifiedTimeArgs = {
@@ -713,6 +714,7 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___coverImage___id'
   | 'childMdx___frontmatter___coverImage___children'
   | 'childMdx___frontmatter___coverImage___childrenGalleryYaml'
+  | 'childMdx___frontmatter___coverImage___childrenTestimonialsYaml'
   | 'childMdx___frontmatter___gallery'
   | 'childMdx___frontmatter___gallery___sourceInstanceName'
   | 'childMdx___frontmatter___gallery___absolutePath'
@@ -751,6 +753,7 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___gallery___id'
   | 'childMdx___frontmatter___gallery___children'
   | 'childMdx___frontmatter___gallery___childrenGalleryYaml'
+  | 'childMdx___frontmatter___gallery___childrenTestimonialsYaml'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -908,7 +911,125 @@ export type FileFieldsEnum =
   | 'childrenGalleryYaml___image___childrenGalleryYaml___id'
   | 'childrenGalleryYaml___image___childrenGalleryYaml___children'
   | 'childrenGalleryYaml___image___childrenGalleryYaml___title'
-  | 'childrenGalleryYaml___title';
+  | 'childrenGalleryYaml___image___childrenTestimonialsYaml'
+  | 'childrenGalleryYaml___image___childrenTestimonialsYaml___id'
+  | 'childrenGalleryYaml___image___childrenTestimonialsYaml___children'
+  | 'childrenGalleryYaml___image___childrenTestimonialsYaml___fullName'
+  | 'childrenGalleryYaml___image___childrenTestimonialsYaml___text'
+  | 'childrenGalleryYaml___title'
+  | 'childrenTestimonialsYaml'
+  | 'childrenTestimonialsYaml___id'
+  | 'childrenTestimonialsYaml___parent___id'
+  | 'childrenTestimonialsYaml___parent___parent___id'
+  | 'childrenTestimonialsYaml___parent___parent___children'
+  | 'childrenTestimonialsYaml___parent___children'
+  | 'childrenTestimonialsYaml___parent___children___id'
+  | 'childrenTestimonialsYaml___parent___children___children'
+  | 'childrenTestimonialsYaml___parent___internal___content'
+  | 'childrenTestimonialsYaml___parent___internal___contentDigest'
+  | 'childrenTestimonialsYaml___parent___internal___description'
+  | 'childrenTestimonialsYaml___parent___internal___fieldOwners'
+  | 'childrenTestimonialsYaml___parent___internal___ignoreType'
+  | 'childrenTestimonialsYaml___parent___internal___mediaType'
+  | 'childrenTestimonialsYaml___parent___internal___owner'
+  | 'childrenTestimonialsYaml___parent___internal___type'
+  | 'childrenTestimonialsYaml___children'
+  | 'childrenTestimonialsYaml___children___id'
+  | 'childrenTestimonialsYaml___children___parent___id'
+  | 'childrenTestimonialsYaml___children___parent___children'
+  | 'childrenTestimonialsYaml___children___children'
+  | 'childrenTestimonialsYaml___children___children___id'
+  | 'childrenTestimonialsYaml___children___children___children'
+  | 'childrenTestimonialsYaml___children___internal___content'
+  | 'childrenTestimonialsYaml___children___internal___contentDigest'
+  | 'childrenTestimonialsYaml___children___internal___description'
+  | 'childrenTestimonialsYaml___children___internal___fieldOwners'
+  | 'childrenTestimonialsYaml___children___internal___ignoreType'
+  | 'childrenTestimonialsYaml___children___internal___mediaType'
+  | 'childrenTestimonialsYaml___children___internal___owner'
+  | 'childrenTestimonialsYaml___children___internal___type'
+  | 'childrenTestimonialsYaml___internal___content'
+  | 'childrenTestimonialsYaml___internal___contentDigest'
+  | 'childrenTestimonialsYaml___internal___description'
+  | 'childrenTestimonialsYaml___internal___fieldOwners'
+  | 'childrenTestimonialsYaml___internal___ignoreType'
+  | 'childrenTestimonialsYaml___internal___mediaType'
+  | 'childrenTestimonialsYaml___internal___owner'
+  | 'childrenTestimonialsYaml___internal___type'
+  | 'childrenTestimonialsYaml___fullName'
+  | 'childrenTestimonialsYaml___avatar___sourceInstanceName'
+  | 'childrenTestimonialsYaml___avatar___absolutePath'
+  | 'childrenTestimonialsYaml___avatar___relativePath'
+  | 'childrenTestimonialsYaml___avatar___extension'
+  | 'childrenTestimonialsYaml___avatar___size'
+  | 'childrenTestimonialsYaml___avatar___prettySize'
+  | 'childrenTestimonialsYaml___avatar___modifiedTime'
+  | 'childrenTestimonialsYaml___avatar___accessTime'
+  | 'childrenTestimonialsYaml___avatar___changeTime'
+  | 'childrenTestimonialsYaml___avatar___birthTime'
+  | 'childrenTestimonialsYaml___avatar___root'
+  | 'childrenTestimonialsYaml___avatar___dir'
+  | 'childrenTestimonialsYaml___avatar___base'
+  | 'childrenTestimonialsYaml___avatar___ext'
+  | 'childrenTestimonialsYaml___avatar___name'
+  | 'childrenTestimonialsYaml___avatar___relativeDirectory'
+  | 'childrenTestimonialsYaml___avatar___dev'
+  | 'childrenTestimonialsYaml___avatar___mode'
+  | 'childrenTestimonialsYaml___avatar___nlink'
+  | 'childrenTestimonialsYaml___avatar___uid'
+  | 'childrenTestimonialsYaml___avatar___gid'
+  | 'childrenTestimonialsYaml___avatar___rdev'
+  | 'childrenTestimonialsYaml___avatar___ino'
+  | 'childrenTestimonialsYaml___avatar___atimeMs'
+  | 'childrenTestimonialsYaml___avatar___mtimeMs'
+  | 'childrenTestimonialsYaml___avatar___ctimeMs'
+  | 'childrenTestimonialsYaml___avatar___atime'
+  | 'childrenTestimonialsYaml___avatar___mtime'
+  | 'childrenTestimonialsYaml___avatar___ctime'
+  | 'childrenTestimonialsYaml___avatar___birthtime'
+  | 'childrenTestimonialsYaml___avatar___birthtimeMs'
+  | 'childrenTestimonialsYaml___avatar___blksize'
+  | 'childrenTestimonialsYaml___avatar___blocks'
+  | 'childrenTestimonialsYaml___avatar___publicURL'
+  | 'childrenTestimonialsYaml___avatar___childImageSharp___id'
+  | 'childrenTestimonialsYaml___avatar___childImageSharp___children'
+  | 'childrenTestimonialsYaml___avatar___id'
+  | 'childrenTestimonialsYaml___avatar___parent___id'
+  | 'childrenTestimonialsYaml___avatar___parent___children'
+  | 'childrenTestimonialsYaml___avatar___children'
+  | 'childrenTestimonialsYaml___avatar___children___id'
+  | 'childrenTestimonialsYaml___avatar___children___children'
+  | 'childrenTestimonialsYaml___avatar___internal___content'
+  | 'childrenTestimonialsYaml___avatar___internal___contentDigest'
+  | 'childrenTestimonialsYaml___avatar___internal___description'
+  | 'childrenTestimonialsYaml___avatar___internal___fieldOwners'
+  | 'childrenTestimonialsYaml___avatar___internal___ignoreType'
+  | 'childrenTestimonialsYaml___avatar___internal___mediaType'
+  | 'childrenTestimonialsYaml___avatar___internal___owner'
+  | 'childrenTestimonialsYaml___avatar___internal___type'
+  | 'childrenTestimonialsYaml___avatar___childMdx___rawBody'
+  | 'childrenTestimonialsYaml___avatar___childMdx___fileAbsolutePath'
+  | 'childrenTestimonialsYaml___avatar___childMdx___slug'
+  | 'childrenTestimonialsYaml___avatar___childMdx___body'
+  | 'childrenTestimonialsYaml___avatar___childMdx___excerpt'
+  | 'childrenTestimonialsYaml___avatar___childMdx___headings'
+  | 'childrenTestimonialsYaml___avatar___childMdx___html'
+  | 'childrenTestimonialsYaml___avatar___childMdx___mdxAST'
+  | 'childrenTestimonialsYaml___avatar___childMdx___tableOfContents'
+  | 'childrenTestimonialsYaml___avatar___childMdx___timeToRead'
+  | 'childrenTestimonialsYaml___avatar___childMdx___id'
+  | 'childrenTestimonialsYaml___avatar___childMdx___children'
+  | 'childrenTestimonialsYaml___avatar___childrenGalleryYaml'
+  | 'childrenTestimonialsYaml___avatar___childrenGalleryYaml___id'
+  | 'childrenTestimonialsYaml___avatar___childrenGalleryYaml___children'
+  | 'childrenTestimonialsYaml___avatar___childrenGalleryYaml___title'
+  | 'childrenTestimonialsYaml___avatar___childrenTestimonialsYaml'
+  | 'childrenTestimonialsYaml___avatar___childrenTestimonialsYaml___id'
+  | 'childrenTestimonialsYaml___avatar___childrenTestimonialsYaml___children'
+  | 'childrenTestimonialsYaml___avatar___childrenTestimonialsYaml___fullName'
+  | 'childrenTestimonialsYaml___avatar___childrenTestimonialsYaml___text'
+  | 'childrenTestimonialsYaml___excursion___name'
+  | 'childrenTestimonialsYaml___text';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -952,6 +1073,7 @@ export type FileFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   childMdx?: Maybe<MdxFilterInput>;
   childrenGalleryYaml?: Maybe<GalleryYamlFilterListInput>;
+  childrenTestimonialsYaml?: Maybe<TestimonialsYamlFilterListInput>;
 };
 
 export type FileFilterListInput = {
@@ -1336,7 +1458,64 @@ export type GalleryYamlFieldsEnum =
   | 'image___childrenGalleryYaml___image___id'
   | 'image___childrenGalleryYaml___image___children'
   | 'image___childrenGalleryYaml___image___childrenGalleryYaml'
+  | 'image___childrenGalleryYaml___image___childrenTestimonialsYaml'
   | 'image___childrenGalleryYaml___title'
+  | 'image___childrenTestimonialsYaml'
+  | 'image___childrenTestimonialsYaml___id'
+  | 'image___childrenTestimonialsYaml___parent___id'
+  | 'image___childrenTestimonialsYaml___parent___children'
+  | 'image___childrenTestimonialsYaml___children'
+  | 'image___childrenTestimonialsYaml___children___id'
+  | 'image___childrenTestimonialsYaml___children___children'
+  | 'image___childrenTestimonialsYaml___internal___content'
+  | 'image___childrenTestimonialsYaml___internal___contentDigest'
+  | 'image___childrenTestimonialsYaml___internal___description'
+  | 'image___childrenTestimonialsYaml___internal___fieldOwners'
+  | 'image___childrenTestimonialsYaml___internal___ignoreType'
+  | 'image___childrenTestimonialsYaml___internal___mediaType'
+  | 'image___childrenTestimonialsYaml___internal___owner'
+  | 'image___childrenTestimonialsYaml___internal___type'
+  | 'image___childrenTestimonialsYaml___fullName'
+  | 'image___childrenTestimonialsYaml___avatar___sourceInstanceName'
+  | 'image___childrenTestimonialsYaml___avatar___absolutePath'
+  | 'image___childrenTestimonialsYaml___avatar___relativePath'
+  | 'image___childrenTestimonialsYaml___avatar___extension'
+  | 'image___childrenTestimonialsYaml___avatar___size'
+  | 'image___childrenTestimonialsYaml___avatar___prettySize'
+  | 'image___childrenTestimonialsYaml___avatar___modifiedTime'
+  | 'image___childrenTestimonialsYaml___avatar___accessTime'
+  | 'image___childrenTestimonialsYaml___avatar___changeTime'
+  | 'image___childrenTestimonialsYaml___avatar___birthTime'
+  | 'image___childrenTestimonialsYaml___avatar___root'
+  | 'image___childrenTestimonialsYaml___avatar___dir'
+  | 'image___childrenTestimonialsYaml___avatar___base'
+  | 'image___childrenTestimonialsYaml___avatar___ext'
+  | 'image___childrenTestimonialsYaml___avatar___name'
+  | 'image___childrenTestimonialsYaml___avatar___relativeDirectory'
+  | 'image___childrenTestimonialsYaml___avatar___dev'
+  | 'image___childrenTestimonialsYaml___avatar___mode'
+  | 'image___childrenTestimonialsYaml___avatar___nlink'
+  | 'image___childrenTestimonialsYaml___avatar___uid'
+  | 'image___childrenTestimonialsYaml___avatar___gid'
+  | 'image___childrenTestimonialsYaml___avatar___rdev'
+  | 'image___childrenTestimonialsYaml___avatar___ino'
+  | 'image___childrenTestimonialsYaml___avatar___atimeMs'
+  | 'image___childrenTestimonialsYaml___avatar___mtimeMs'
+  | 'image___childrenTestimonialsYaml___avatar___ctimeMs'
+  | 'image___childrenTestimonialsYaml___avatar___atime'
+  | 'image___childrenTestimonialsYaml___avatar___mtime'
+  | 'image___childrenTestimonialsYaml___avatar___ctime'
+  | 'image___childrenTestimonialsYaml___avatar___birthtime'
+  | 'image___childrenTestimonialsYaml___avatar___birthtimeMs'
+  | 'image___childrenTestimonialsYaml___avatar___blksize'
+  | 'image___childrenTestimonialsYaml___avatar___blocks'
+  | 'image___childrenTestimonialsYaml___avatar___publicURL'
+  | 'image___childrenTestimonialsYaml___avatar___id'
+  | 'image___childrenTestimonialsYaml___avatar___children'
+  | 'image___childrenTestimonialsYaml___avatar___childrenGalleryYaml'
+  | 'image___childrenTestimonialsYaml___avatar___childrenTestimonialsYaml'
+  | 'image___childrenTestimonialsYaml___excursion___name'
+  | 'image___childrenTestimonialsYaml___text'
   | 'title';
 
 export type GalleryYamlFilterInput = {
@@ -2044,6 +2223,11 @@ export type MdxFieldsEnum =
   | 'frontmatter___coverImage___childrenGalleryYaml___id'
   | 'frontmatter___coverImage___childrenGalleryYaml___children'
   | 'frontmatter___coverImage___childrenGalleryYaml___title'
+  | 'frontmatter___coverImage___childrenTestimonialsYaml'
+  | 'frontmatter___coverImage___childrenTestimonialsYaml___id'
+  | 'frontmatter___coverImage___childrenTestimonialsYaml___children'
+  | 'frontmatter___coverImage___childrenTestimonialsYaml___fullName'
+  | 'frontmatter___coverImage___childrenTestimonialsYaml___text'
   | 'frontmatter___gallery'
   | 'frontmatter___gallery___sourceInstanceName'
   | 'frontmatter___gallery___absolutePath'
@@ -2111,6 +2295,11 @@ export type MdxFieldsEnum =
   | 'frontmatter___gallery___childrenGalleryYaml___id'
   | 'frontmatter___gallery___childrenGalleryYaml___children'
   | 'frontmatter___gallery___childrenGalleryYaml___title'
+  | 'frontmatter___gallery___childrenTestimonialsYaml'
+  | 'frontmatter___gallery___childrenTestimonialsYaml___id'
+  | 'frontmatter___gallery___childrenTestimonialsYaml___children'
+  | 'frontmatter___gallery___childrenTestimonialsYaml___fullName'
+  | 'frontmatter___gallery___childrenTestimonialsYaml___text'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -2373,6 +2562,8 @@ export type Query = {
   allImageSharp: ImageSharpConnection;
   mdx?: Maybe<Mdx>;
   allMdx: MdxConnection;
+  testimonialsYaml?: Maybe<TestimonialsYaml>;
+  allTestimonialsYaml: TestimonialsYamlConnection;
   galleryYaml?: Maybe<GalleryYaml>;
   allGalleryYaml: GalleryYamlConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -2423,6 +2614,7 @@ export type QueryFileArgs = {
   internal?: Maybe<InternalFilterInput>;
   childMdx?: Maybe<MdxFilterInput>;
   childrenGalleryYaml?: Maybe<GalleryYamlFilterListInput>;
+  childrenTestimonialsYaml?: Maybe<TestimonialsYamlFilterListInput>;
 };
 
 export type QueryAllFileArgs = {
@@ -2566,6 +2758,24 @@ export type QueryMdxArgs = {
 export type QueryAllMdxArgs = {
   filter?: Maybe<MdxFilterInput>;
   sort?: Maybe<MdxSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+export type QueryTestimonialsYamlArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  fullName?: Maybe<StringQueryOperatorInput>;
+  avatar?: Maybe<FileFilterInput>;
+  excursion?: Maybe<TestimonialsYamlExcursionFilterInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllTestimonialsYamlArgs = {
+  filter?: Maybe<TestimonialsYamlFilterInput>;
+  sort?: Maybe<TestimonialsYamlSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3657,6 +3867,461 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type TestimonialsYaml = Node & {
+  __typename?: 'TestimonialsYaml';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  fullName?: Maybe<Scalars['String']>;
+  avatar?: Maybe<File>;
+  excursion?: Maybe<TestimonialsYamlExcursion>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type TestimonialsYamlConnection = {
+  __typename?: 'TestimonialsYamlConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<TestimonialsYamlEdge>;
+  nodes: Array<TestimonialsYaml>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<TestimonialsYamlGroupConnection>;
+};
+
+export type TestimonialsYamlConnectionDistinctArgs = {
+  field: TestimonialsYamlFieldsEnum;
+};
+
+export type TestimonialsYamlConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: TestimonialsYamlFieldsEnum;
+};
+
+export type TestimonialsYamlEdge = {
+  __typename?: 'TestimonialsYamlEdge';
+  next?: Maybe<TestimonialsYaml>;
+  node: TestimonialsYaml;
+  previous?: Maybe<TestimonialsYaml>;
+};
+
+export type TestimonialsYamlExcursion = {
+  __typename?: 'TestimonialsYamlExcursion';
+  name?: Maybe<Scalars['String']>;
+};
+
+export type TestimonialsYamlExcursionFilterInput = {
+  name?: Maybe<StringQueryOperatorInput>;
+};
+
+export type TestimonialsYamlFieldsEnum =
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'fullName'
+  | 'avatar___sourceInstanceName'
+  | 'avatar___absolutePath'
+  | 'avatar___relativePath'
+  | 'avatar___extension'
+  | 'avatar___size'
+  | 'avatar___prettySize'
+  | 'avatar___modifiedTime'
+  | 'avatar___accessTime'
+  | 'avatar___changeTime'
+  | 'avatar___birthTime'
+  | 'avatar___root'
+  | 'avatar___dir'
+  | 'avatar___base'
+  | 'avatar___ext'
+  | 'avatar___name'
+  | 'avatar___relativeDirectory'
+  | 'avatar___dev'
+  | 'avatar___mode'
+  | 'avatar___nlink'
+  | 'avatar___uid'
+  | 'avatar___gid'
+  | 'avatar___rdev'
+  | 'avatar___ino'
+  | 'avatar___atimeMs'
+  | 'avatar___mtimeMs'
+  | 'avatar___ctimeMs'
+  | 'avatar___atime'
+  | 'avatar___mtime'
+  | 'avatar___ctime'
+  | 'avatar___birthtime'
+  | 'avatar___birthtimeMs'
+  | 'avatar___blksize'
+  | 'avatar___blocks'
+  | 'avatar___publicURL'
+  | 'avatar___childImageSharp___fixed___base64'
+  | 'avatar___childImageSharp___fixed___tracedSVG'
+  | 'avatar___childImageSharp___fixed___aspectRatio'
+  | 'avatar___childImageSharp___fixed___width'
+  | 'avatar___childImageSharp___fixed___height'
+  | 'avatar___childImageSharp___fixed___src'
+  | 'avatar___childImageSharp___fixed___srcSet'
+  | 'avatar___childImageSharp___fixed___srcWebp'
+  | 'avatar___childImageSharp___fixed___srcSetWebp'
+  | 'avatar___childImageSharp___fixed___originalName'
+  | 'avatar___childImageSharp___resolutions___base64'
+  | 'avatar___childImageSharp___resolutions___tracedSVG'
+  | 'avatar___childImageSharp___resolutions___aspectRatio'
+  | 'avatar___childImageSharp___resolutions___width'
+  | 'avatar___childImageSharp___resolutions___height'
+  | 'avatar___childImageSharp___resolutions___src'
+  | 'avatar___childImageSharp___resolutions___srcSet'
+  | 'avatar___childImageSharp___resolutions___srcWebp'
+  | 'avatar___childImageSharp___resolutions___srcSetWebp'
+  | 'avatar___childImageSharp___resolutions___originalName'
+  | 'avatar___childImageSharp___fluid___base64'
+  | 'avatar___childImageSharp___fluid___tracedSVG'
+  | 'avatar___childImageSharp___fluid___aspectRatio'
+  | 'avatar___childImageSharp___fluid___src'
+  | 'avatar___childImageSharp___fluid___srcSet'
+  | 'avatar___childImageSharp___fluid___srcWebp'
+  | 'avatar___childImageSharp___fluid___srcSetWebp'
+  | 'avatar___childImageSharp___fluid___sizes'
+  | 'avatar___childImageSharp___fluid___originalImg'
+  | 'avatar___childImageSharp___fluid___originalName'
+  | 'avatar___childImageSharp___fluid___presentationWidth'
+  | 'avatar___childImageSharp___fluid___presentationHeight'
+  | 'avatar___childImageSharp___sizes___base64'
+  | 'avatar___childImageSharp___sizes___tracedSVG'
+  | 'avatar___childImageSharp___sizes___aspectRatio'
+  | 'avatar___childImageSharp___sizes___src'
+  | 'avatar___childImageSharp___sizes___srcSet'
+  | 'avatar___childImageSharp___sizes___srcWebp'
+  | 'avatar___childImageSharp___sizes___srcSetWebp'
+  | 'avatar___childImageSharp___sizes___sizes'
+  | 'avatar___childImageSharp___sizes___originalImg'
+  | 'avatar___childImageSharp___sizes___originalName'
+  | 'avatar___childImageSharp___sizes___presentationWidth'
+  | 'avatar___childImageSharp___sizes___presentationHeight'
+  | 'avatar___childImageSharp___original___width'
+  | 'avatar___childImageSharp___original___height'
+  | 'avatar___childImageSharp___original___src'
+  | 'avatar___childImageSharp___resize___src'
+  | 'avatar___childImageSharp___resize___tracedSVG'
+  | 'avatar___childImageSharp___resize___width'
+  | 'avatar___childImageSharp___resize___height'
+  | 'avatar___childImageSharp___resize___aspectRatio'
+  | 'avatar___childImageSharp___resize___originalName'
+  | 'avatar___childImageSharp___id'
+  | 'avatar___childImageSharp___parent___id'
+  | 'avatar___childImageSharp___parent___children'
+  | 'avatar___childImageSharp___children'
+  | 'avatar___childImageSharp___children___id'
+  | 'avatar___childImageSharp___children___children'
+  | 'avatar___childImageSharp___internal___content'
+  | 'avatar___childImageSharp___internal___contentDigest'
+  | 'avatar___childImageSharp___internal___description'
+  | 'avatar___childImageSharp___internal___fieldOwners'
+  | 'avatar___childImageSharp___internal___ignoreType'
+  | 'avatar___childImageSharp___internal___mediaType'
+  | 'avatar___childImageSharp___internal___owner'
+  | 'avatar___childImageSharp___internal___type'
+  | 'avatar___id'
+  | 'avatar___parent___id'
+  | 'avatar___parent___parent___id'
+  | 'avatar___parent___parent___children'
+  | 'avatar___parent___children'
+  | 'avatar___parent___children___id'
+  | 'avatar___parent___children___children'
+  | 'avatar___parent___internal___content'
+  | 'avatar___parent___internal___contentDigest'
+  | 'avatar___parent___internal___description'
+  | 'avatar___parent___internal___fieldOwners'
+  | 'avatar___parent___internal___ignoreType'
+  | 'avatar___parent___internal___mediaType'
+  | 'avatar___parent___internal___owner'
+  | 'avatar___parent___internal___type'
+  | 'avatar___children'
+  | 'avatar___children___id'
+  | 'avatar___children___parent___id'
+  | 'avatar___children___parent___children'
+  | 'avatar___children___children'
+  | 'avatar___children___children___id'
+  | 'avatar___children___children___children'
+  | 'avatar___children___internal___content'
+  | 'avatar___children___internal___contentDigest'
+  | 'avatar___children___internal___description'
+  | 'avatar___children___internal___fieldOwners'
+  | 'avatar___children___internal___ignoreType'
+  | 'avatar___children___internal___mediaType'
+  | 'avatar___children___internal___owner'
+  | 'avatar___children___internal___type'
+  | 'avatar___internal___content'
+  | 'avatar___internal___contentDigest'
+  | 'avatar___internal___description'
+  | 'avatar___internal___fieldOwners'
+  | 'avatar___internal___ignoreType'
+  | 'avatar___internal___mediaType'
+  | 'avatar___internal___owner'
+  | 'avatar___internal___type'
+  | 'avatar___childMdx___rawBody'
+  | 'avatar___childMdx___fileAbsolutePath'
+  | 'avatar___childMdx___frontmatter___title'
+  | 'avatar___childMdx___frontmatter___template'
+  | 'avatar___childMdx___frontmatter___duration'
+  | 'avatar___childMdx___frontmatter___price'
+  | 'avatar___childMdx___frontmatter___createdAt'
+  | 'avatar___childMdx___frontmatter___description'
+  | 'avatar___childMdx___frontmatter___gallery'
+  | 'avatar___childMdx___slug'
+  | 'avatar___childMdx___body'
+  | 'avatar___childMdx___excerpt'
+  | 'avatar___childMdx___headings'
+  | 'avatar___childMdx___headings___value'
+  | 'avatar___childMdx___headings___depth'
+  | 'avatar___childMdx___html'
+  | 'avatar___childMdx___mdxAST'
+  | 'avatar___childMdx___tableOfContents'
+  | 'avatar___childMdx___timeToRead'
+  | 'avatar___childMdx___wordCount___paragraphs'
+  | 'avatar___childMdx___wordCount___sentences'
+  | 'avatar___childMdx___wordCount___words'
+  | 'avatar___childMdx___fields___slug'
+  | 'avatar___childMdx___id'
+  | 'avatar___childMdx___parent___id'
+  | 'avatar___childMdx___parent___children'
+  | 'avatar___childMdx___children'
+  | 'avatar___childMdx___children___id'
+  | 'avatar___childMdx___children___children'
+  | 'avatar___childMdx___internal___content'
+  | 'avatar___childMdx___internal___contentDigest'
+  | 'avatar___childMdx___internal___description'
+  | 'avatar___childMdx___internal___fieldOwners'
+  | 'avatar___childMdx___internal___ignoreType'
+  | 'avatar___childMdx___internal___mediaType'
+  | 'avatar___childMdx___internal___owner'
+  | 'avatar___childMdx___internal___type'
+  | 'avatar___childrenGalleryYaml'
+  | 'avatar___childrenGalleryYaml___id'
+  | 'avatar___childrenGalleryYaml___parent___id'
+  | 'avatar___childrenGalleryYaml___parent___children'
+  | 'avatar___childrenGalleryYaml___children'
+  | 'avatar___childrenGalleryYaml___children___id'
+  | 'avatar___childrenGalleryYaml___children___children'
+  | 'avatar___childrenGalleryYaml___internal___content'
+  | 'avatar___childrenGalleryYaml___internal___contentDigest'
+  | 'avatar___childrenGalleryYaml___internal___description'
+  | 'avatar___childrenGalleryYaml___internal___fieldOwners'
+  | 'avatar___childrenGalleryYaml___internal___ignoreType'
+  | 'avatar___childrenGalleryYaml___internal___mediaType'
+  | 'avatar___childrenGalleryYaml___internal___owner'
+  | 'avatar___childrenGalleryYaml___internal___type'
+  | 'avatar___childrenGalleryYaml___image___sourceInstanceName'
+  | 'avatar___childrenGalleryYaml___image___absolutePath'
+  | 'avatar___childrenGalleryYaml___image___relativePath'
+  | 'avatar___childrenGalleryYaml___image___extension'
+  | 'avatar___childrenGalleryYaml___image___size'
+  | 'avatar___childrenGalleryYaml___image___prettySize'
+  | 'avatar___childrenGalleryYaml___image___modifiedTime'
+  | 'avatar___childrenGalleryYaml___image___accessTime'
+  | 'avatar___childrenGalleryYaml___image___changeTime'
+  | 'avatar___childrenGalleryYaml___image___birthTime'
+  | 'avatar___childrenGalleryYaml___image___root'
+  | 'avatar___childrenGalleryYaml___image___dir'
+  | 'avatar___childrenGalleryYaml___image___base'
+  | 'avatar___childrenGalleryYaml___image___ext'
+  | 'avatar___childrenGalleryYaml___image___name'
+  | 'avatar___childrenGalleryYaml___image___relativeDirectory'
+  | 'avatar___childrenGalleryYaml___image___dev'
+  | 'avatar___childrenGalleryYaml___image___mode'
+  | 'avatar___childrenGalleryYaml___image___nlink'
+  | 'avatar___childrenGalleryYaml___image___uid'
+  | 'avatar___childrenGalleryYaml___image___gid'
+  | 'avatar___childrenGalleryYaml___image___rdev'
+  | 'avatar___childrenGalleryYaml___image___ino'
+  | 'avatar___childrenGalleryYaml___image___atimeMs'
+  | 'avatar___childrenGalleryYaml___image___mtimeMs'
+  | 'avatar___childrenGalleryYaml___image___ctimeMs'
+  | 'avatar___childrenGalleryYaml___image___atime'
+  | 'avatar___childrenGalleryYaml___image___mtime'
+  | 'avatar___childrenGalleryYaml___image___ctime'
+  | 'avatar___childrenGalleryYaml___image___birthtime'
+  | 'avatar___childrenGalleryYaml___image___birthtimeMs'
+  | 'avatar___childrenGalleryYaml___image___blksize'
+  | 'avatar___childrenGalleryYaml___image___blocks'
+  | 'avatar___childrenGalleryYaml___image___publicURL'
+  | 'avatar___childrenGalleryYaml___image___id'
+  | 'avatar___childrenGalleryYaml___image___children'
+  | 'avatar___childrenGalleryYaml___image___childrenGalleryYaml'
+  | 'avatar___childrenGalleryYaml___image___childrenTestimonialsYaml'
+  | 'avatar___childrenGalleryYaml___title'
+  | 'avatar___childrenTestimonialsYaml'
+  | 'avatar___childrenTestimonialsYaml___id'
+  | 'avatar___childrenTestimonialsYaml___parent___id'
+  | 'avatar___childrenTestimonialsYaml___parent___children'
+  | 'avatar___childrenTestimonialsYaml___children'
+  | 'avatar___childrenTestimonialsYaml___children___id'
+  | 'avatar___childrenTestimonialsYaml___children___children'
+  | 'avatar___childrenTestimonialsYaml___internal___content'
+  | 'avatar___childrenTestimonialsYaml___internal___contentDigest'
+  | 'avatar___childrenTestimonialsYaml___internal___description'
+  | 'avatar___childrenTestimonialsYaml___internal___fieldOwners'
+  | 'avatar___childrenTestimonialsYaml___internal___ignoreType'
+  | 'avatar___childrenTestimonialsYaml___internal___mediaType'
+  | 'avatar___childrenTestimonialsYaml___internal___owner'
+  | 'avatar___childrenTestimonialsYaml___internal___type'
+  | 'avatar___childrenTestimonialsYaml___fullName'
+  | 'avatar___childrenTestimonialsYaml___avatar___sourceInstanceName'
+  | 'avatar___childrenTestimonialsYaml___avatar___absolutePath'
+  | 'avatar___childrenTestimonialsYaml___avatar___relativePath'
+  | 'avatar___childrenTestimonialsYaml___avatar___extension'
+  | 'avatar___childrenTestimonialsYaml___avatar___size'
+  | 'avatar___childrenTestimonialsYaml___avatar___prettySize'
+  | 'avatar___childrenTestimonialsYaml___avatar___modifiedTime'
+  | 'avatar___childrenTestimonialsYaml___avatar___accessTime'
+  | 'avatar___childrenTestimonialsYaml___avatar___changeTime'
+  | 'avatar___childrenTestimonialsYaml___avatar___birthTime'
+  | 'avatar___childrenTestimonialsYaml___avatar___root'
+  | 'avatar___childrenTestimonialsYaml___avatar___dir'
+  | 'avatar___childrenTestimonialsYaml___avatar___base'
+  | 'avatar___childrenTestimonialsYaml___avatar___ext'
+  | 'avatar___childrenTestimonialsYaml___avatar___name'
+  | 'avatar___childrenTestimonialsYaml___avatar___relativeDirectory'
+  | 'avatar___childrenTestimonialsYaml___avatar___dev'
+  | 'avatar___childrenTestimonialsYaml___avatar___mode'
+  | 'avatar___childrenTestimonialsYaml___avatar___nlink'
+  | 'avatar___childrenTestimonialsYaml___avatar___uid'
+  | 'avatar___childrenTestimonialsYaml___avatar___gid'
+  | 'avatar___childrenTestimonialsYaml___avatar___rdev'
+  | 'avatar___childrenTestimonialsYaml___avatar___ino'
+  | 'avatar___childrenTestimonialsYaml___avatar___atimeMs'
+  | 'avatar___childrenTestimonialsYaml___avatar___mtimeMs'
+  | 'avatar___childrenTestimonialsYaml___avatar___ctimeMs'
+  | 'avatar___childrenTestimonialsYaml___avatar___atime'
+  | 'avatar___childrenTestimonialsYaml___avatar___mtime'
+  | 'avatar___childrenTestimonialsYaml___avatar___ctime'
+  | 'avatar___childrenTestimonialsYaml___avatar___birthtime'
+  | 'avatar___childrenTestimonialsYaml___avatar___birthtimeMs'
+  | 'avatar___childrenTestimonialsYaml___avatar___blksize'
+  | 'avatar___childrenTestimonialsYaml___avatar___blocks'
+  | 'avatar___childrenTestimonialsYaml___avatar___publicURL'
+  | 'avatar___childrenTestimonialsYaml___avatar___id'
+  | 'avatar___childrenTestimonialsYaml___avatar___children'
+  | 'avatar___childrenTestimonialsYaml___avatar___childrenGalleryYaml'
+  | 'avatar___childrenTestimonialsYaml___avatar___childrenTestimonialsYaml'
+  | 'avatar___childrenTestimonialsYaml___excursion___name'
+  | 'avatar___childrenTestimonialsYaml___text'
+  | 'excursion___name'
+  | 'text';
+
+export type TestimonialsYamlFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  fullName?: Maybe<StringQueryOperatorInput>;
+  avatar?: Maybe<FileFilterInput>;
+  excursion?: Maybe<TestimonialsYamlExcursionFilterInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type TestimonialsYamlFilterListInput = {
+  elemMatch?: Maybe<TestimonialsYamlFilterInput>;
+};
+
+export type TestimonialsYamlGroupConnection = {
+  __typename?: 'TestimonialsYamlGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<TestimonialsYamlEdge>;
+  nodes: Array<TestimonialsYaml>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type TestimonialsYamlSortInput = {
+  fields?: Maybe<Array<Maybe<TestimonialsYamlFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type GatsbyImageSharpFixedFragment = { __typename?: 'ImageSharpFixed' } & Pick<
   ImageSharpFixed,
   'base64' | 'width' | 'height' | 'src' | 'srcSet'
@@ -3877,6 +4542,16 @@ export type GallerySection_GalleryQuery = { __typename?: 'Query' } & {
   };
 };
 
+export type TestimonialsSection_TestimonialsQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type TestimonialsSection_TestimonialsQuery = { __typename?: 'Query' } & {
+  allTestimonialsYaml: { __typename?: 'TestimonialsYamlConnection' } & {
+    nodes: Array<{ __typename?: 'TestimonialsYaml' } & TestimonialFragment>;
+  };
+};
+
 export type ExcursionCardCoverFragment = { __typename?: 'File' } & {
   childImageSharp?: Maybe<
     { __typename?: 'ImageSharp' } & {
@@ -3909,6 +4584,29 @@ export type ExcursionGalleryImageFragment = { __typename?: 'File' } & {
     }
   >;
 };
+
+export type TestimonialFragment = { __typename?: 'TestimonialsYaml' } & Pick<
+  TestimonialsYaml,
+  'id' | 'fullName' | 'text'
+> & {
+    avatar?: Maybe<
+      { __typename?: 'File' } & {
+        childImageSharp?: Maybe<
+          { __typename?: 'ImageSharp' } & {
+            fixed?: Maybe<
+              { __typename?: 'ImageSharpFixed' } & GatsbyImageSharpFixed_WithWebpFragment
+            >;
+          }
+        >;
+      }
+    >;
+    excursion?: Maybe<
+      { __typename?: 'TestimonialsYamlExcursion' } & Pick<
+        TestimonialsYamlExcursion,
+        'name'
+      >
+    >;
+  };
 
 export type ExcursionBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
