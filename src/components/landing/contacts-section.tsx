@@ -1,13 +1,17 @@
 import React from 'react';
+import { pick } from 'lodash';
 
-import { ReactComponent as TimerIcon } from 'assets/icons/timer.svg';
-import { EMAIL, PHONE_NUMBER } from 'constants/config';
+import { ReactComponent as MailIcon } from 'assets/icons/mail.svg';
+import { ReactComponent as PhoneIcon } from 'assets/icons/phone.svg';
+import { EMAIL, PHONE_NUMBER, SOCIAL } from 'constants/config';
 import { SectionTitle, Link, Input, Button, Textarea } from 'components/ui';
 import Section, { SectionProps } from './section';
 import ContactItem from './contact-item';
 import * as css from './contacts-section.module.scss';
 
 export type ContactsSectionProps = Partial<SectionProps>;
+
+const socialList = Object.values(pick(SOCIAL, ['whatsapp', 'telegram', 'instagram']));
 
 function ContactsSection(props: ContactsSectionProps) {
   return (
@@ -23,21 +27,21 @@ function ContactsSection(props: ContactsSectionProps) {
 
             <div className={css.contacts}>
               <Link href={PHONE_NUMBER.url}>
-                <ContactItem icon={<TimerIcon width="100%" />}>
+                <ContactItem icon={<PhoneIcon width="100%" />}>
                   {PHONE_NUMBER.pretty} ({PHONE_NUMBER.firstName})
                 </ContactItem>
               </Link>
 
               <Link href={EMAIL.url}>
-                <ContactItem icon={<TimerIcon width="100%" />}>
-                  {EMAIL.pretty}
-                </ContactItem>
+                <ContactItem icon={<MailIcon width="100%" />}>{EMAIL.pretty}</ContactItem>
               </Link>
 
               <div className={css.contactsRow}>
-                <ContactItem icon={<TimerIcon width="100%" />}>WhatsApp</ContactItem>
-                <ContactItem icon={<TimerIcon width="100%" />}>Telegram</ContactItem>
-                <ContactItem icon={<TimerIcon width="100%" />}>Instagram</ContactItem>
+                {socialList.map(({ icon: Icon, label, url }, index) => (
+                  <ContactItem key={index} href={url} icon={<Icon width="100%" />}>
+                    {label}
+                  </ContactItem>
+                ))}
               </div>
             </div>
           </div>

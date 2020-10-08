@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { EMAIL, PHONE_NUMBER } from 'constants/config';
+import { EMAIL, PHONE_NUMBER, SOCIAL } from 'constants/config';
 import Link from './ui/link';
 import LogoText from './logo-text';
 import Container from './container';
@@ -11,6 +11,8 @@ const logoTextCn = {
   base: css.logoBase,
   icon: css.logoIcon,
 };
+
+const socialList = Object.values(SOCIAL);
 
 function Footer() {
   return (
@@ -23,19 +25,30 @@ function Footer() {
 
         <div className={css.contactsBox}>
           <div className={css.contacts}>
-            <Link href={PHONE_NUMBER.url} color="inherit" withUnderline>
+            <Link
+              className={css.link}
+              href={PHONE_NUMBER.url}
+              color="inherit"
+              withUnderline
+            >
               {PHONE_NUMBER.pretty}
             </Link>
-            <Link href={EMAIL.url} color="inherit" withUnderline>
+            <Link className={css.link} href={EMAIL.url} color="inherit" withUnderline>
               {EMAIL.pretty}
             </Link>
           </div>
           <div className={css.socialMedias}>
-            <div className={css.socialMedia}></div>
-            <div className={css.socialMedia}></div>
-            <div className={css.socialMedia}></div>
-            <div className={css.socialMedia}></div>
-            <div className={css.socialMedia}></div>
+            {socialList.map(({ icon: Icon, url }, index) => (
+              <Link
+                key={index}
+                className={css.socialMedia}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon width="100%" />
+              </Link>
+            ))}
           </div>
         </div>
       </Container>

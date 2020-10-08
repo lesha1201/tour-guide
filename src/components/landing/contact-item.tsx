@@ -1,18 +1,19 @@
 import React from 'react';
 
+import Link, { LinkProps } from 'components/ui/link';
 import * as css from './contact-item.module.scss';
 
-export type ContactItemProps = {
+export type ContactItemProps = Omit<LinkProps<'a'>, 'as'> & {
   icon: React.ReactNode;
   children: React.ReactNode;
 };
 
-function ContactItem({ icon, children }: ContactItemProps) {
+function ContactItem({ icon, children, ...rest }: ContactItemProps) {
   return (
-    <div className={css.base}>
+    <Link className={css.base} target="_blank" rel="noopener noreferrer" {...rest}>
       <div className={css.icon}>{icon}</div>
       <div>{children}</div>
-    </div>
+    </Link>
   );
 }
 

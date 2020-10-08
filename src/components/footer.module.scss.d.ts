@@ -6,6 +6,7 @@ export interface IFooterModuleScss {
   'logoIcon': string;
   'contactsBox': string;
   'contacts': string;
+  'link': string;
   'socialMedias': string;
   'socialMedia': string;
   'dots': string;

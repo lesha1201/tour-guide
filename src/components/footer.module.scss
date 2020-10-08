@@ -48,6 +48,16 @@
   }
 }
 
+.link {
+  color: var(--color-white);
+
+  transition: all 0.2s;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
 .social-medias {
   display: flex;
   flex-wrap: nowrap;
@@ -58,10 +68,11 @@
 }
 
 .social-media {
+  composes: link;
+
   width: 3.2rem;
   height: 3.2rem;
 
-  background-color: var(--color-white);
   border-radius: 0.4rem;
 }
 

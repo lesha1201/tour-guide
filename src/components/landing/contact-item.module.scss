@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
 
+  color: var(--color-text-primary);
   font-size: 1em;
 
   > *:not(:last-child) {
@@ -13,8 +14,6 @@
 
 .icon {
   display: inline-flex;
-  width: 2.222222em;
-  height: 2.222222em;
-
-  color: var(--color-text-primary);
+  width: 2em;
+  height: 2em;
 }
