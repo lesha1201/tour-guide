@@ -13,7 +13,6 @@ module.exports = gatsbyOptions => {
     resolve: {
       alias: {
         scss: path.resolve(__dirname, '../src/assets/scss'),
-        static: path.resolve(__dirname, '../static'),
       },
       modules: [path.resolve(__dirname, '../src'), 'node_modules'],
     },

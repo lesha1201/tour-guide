@@ -9,15 +9,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: path.resolve(__dirname, 'static'),
-        name: 'assets',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: path.resolve(__dirname, 'static/media'),
-        name: 'media',
+        path: path.resolve(__dirname, 'src', 'assets', 'images'),
+        name: 'images',
       },
     },
     {
@@ -40,12 +33,6 @@ module.exports = {
       options: {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              staticFolderName: path.resolve(__dirname, 'static'),
-            },
-          },
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -118,7 +105,7 @@ module.exports = {
         background_color: '#FFF',
         theme_color: '#F7A046',
         display: 'standalone',
-        icon: 'static/photo.jpg',
+        icon: 'src/assets/images/profile-photo.jpg',
       },
     },
     'gatsby-plugin-offline',

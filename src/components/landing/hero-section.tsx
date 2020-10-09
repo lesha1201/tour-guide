@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 import { use100vh } from 'react-div-100vh';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img, { FluidObject } from 'gatsby-image';
 
-import mainPhoto from 'static/photo.jpg';
+import { HeroSection_ProfilePhotoQuery } from 'types/graphql';
 import Header from 'components/header';
 import Container from 'components/container';
 import Button from 'components/ui/button';
@@ -12,6 +14,53 @@ import * as css from './hero-section.module.scss';
 export type HeroSectionProps = React.HTMLAttributes<HTMLDivElement>;
 
 function HeroSection(props: HeroSectionProps) {
+  const { profilePhoto, background, backgroundMobile } = useStaticQuery<
+    HeroSection_ProfilePhotoQuery
+  >(graphql`
+    query HeroSection_ProfilePhoto {
+      profilePhoto: file(
+        sourceInstanceName: { eq: "images" }
+        name: { eq: "profile-photo" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 358) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+
+      backgroundMobile: file(
+        sourceInstanceName: { eq: "images" }
+        name: { eq: "landing-bg" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 768, maxHeight: 1024, cropFocus: CENTER) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+
+      background: file(sourceInstanceName: { eq: "images" }, name: { eq: "landing-bg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `);
+
+  const backgroundSources = useMemo(
+    () =>
+      [
+        backgroundMobile?.childImageSharp?.fluid,
+        { ...background?.childImageSharp?.fluid, media: '(min-width: 768px)' },
+      ].filter(Boolean) as FluidObject[],
+    [background?.childImageSharp?.fluid, backgroundMobile?.childImageSharp?.fluid],
+  );
+
+  const profilePhotoImage = profilePhoto?.childImageSharp?.fluid;
+
   const height = use100vh();
 
   const content = useMemo(
@@ -19,10 +68,27 @@ function HeroSection(props: HeroSectionProps) {
       <>
         <Header variant="light" />
 
+        <div className={css.heroBackground}>
+          <Img
+            className={css.heroBackgroundImage}
+            fluid={backgroundSources}
+            durationFadeIn={200}
+            loading="eager"
+          />
+          <div className={css.heroBackgroundOverlay} />
+        </div>
+
         <div className={css.heroBox}>
           <Container className={css.heroBoxContainer}>
             <div className={css.heroImgBox}>
-              <img className={css.heroImg} src={mainPhoto} />
+              {profilePhotoImage && (
+                <Img
+                  className={css.heroImg}
+                  fluid={profilePhotoImage as FluidObject}
+                  durationFadeIn={200}
+                  loading="eager"
+                />
+              )}
             </div>
             <div>
               <h1 className={css.heroTitle}>Индивидуальный гид по Санкт-Петербургу</h1>
@@ -53,7 +119,7 @@ function HeroSection(props: HeroSectionProps) {
         </div>
       </>
     ),
-    [],
+    [backgroundSources, profilePhotoImage],
   );
 
   return (
