@@ -36,7 +36,7 @@
   background-color: var(--color-white);
 
   .mob-nav {
-    display: block;
+    display: flex;
   }
 
   .nav {
@@ -64,6 +64,14 @@
   }
 }
 
+.logo-text-title {
+  font-size: 2rem;
+
+  @include mixins.respond(tab-port) {
+    font-size: 2.4rem;
+  }
+}
+
 .mob-header {
   display: flex;
   flex-wrap: nowrap;
@@ -77,6 +85,8 @@
 }
 
 .mob-nav {
+  display: flex;
+
   @include mixins.respond(desk-small) {
     display: none;
   }

@@ -10,7 +10,7 @@ export type ContactItemProps = Omit<LinkProps<'a'>, 'as'> & {
 
 function ContactItem({ icon, children, ...rest }: ContactItemProps) {
   return (
-    <Link className={css.base} target="_blank" rel="noopener noreferrer" {...rest}>
+    <Link className={css.base} {...rest}>
       <div className={css.icon}>{icon}</div>
       <div>{children}</div>
     </Link>

@@ -4,7 +4,7 @@ import { pick } from 'lodash';
 import { ReactComponent as MailIcon } from 'assets/icons/mail.svg';
 import { ReactComponent as PhoneIcon } from 'assets/icons/phone.svg';
 import { EMAIL, PHONE_NUMBER, SOCIAL } from 'constants/config';
-import { SectionTitle, Link, Input, Button, Textarea } from 'components/ui';
+import { SectionTitle, Input, Button, Textarea } from 'components/ui';
 import Section, { SectionProps } from './section';
 import ContactItem from './contact-item';
 import * as css from './contacts-section.module.scss';
@@ -26,19 +26,23 @@ function ContactsSection(props: ContactsSectionProps) {
             </p>
 
             <div className={css.contacts}>
-              <Link href={PHONE_NUMBER.url}>
-                <ContactItem icon={<PhoneIcon width="100%" />}>
-                  {PHONE_NUMBER.pretty} ({PHONE_NUMBER.firstName})
-                </ContactItem>
-              </Link>
+              <ContactItem href={PHONE_NUMBER.url} icon={<PhoneIcon width="100%" />}>
+                {PHONE_NUMBER.pretty} ({PHONE_NUMBER.firstName})
+              </ContactItem>
 
-              <Link href={EMAIL.url}>
-                <ContactItem icon={<MailIcon width="100%" />}>{EMAIL.pretty}</ContactItem>
-              </Link>
+              <ContactItem href={EMAIL.url} icon={<MailIcon width="100%" />}>
+                {EMAIL.pretty}
+              </ContactItem>
 
               <div className={css.contactsRow}>
                 {socialList.map(({ icon: Icon, label, url }, index) => (
-                  <ContactItem key={index} href={url} icon={<Icon width="100%" />}>
+                  <ContactItem
+                    key={index}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    icon={<Icon width="100%" />}
+                  >
                     {label}
                   </ContactItem>
                 ))}

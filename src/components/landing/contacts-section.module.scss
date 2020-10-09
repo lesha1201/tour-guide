@@ -34,11 +34,16 @@ $container-item-gap: spacing.$base * 0.7rem;
   }
 }
 
+$contacts-row-item-gap: spacing.$base * 0.4rem;
+$contacts-row-item-half-gap: $contacts-row-item-gap / 2;
+
 .contacts-row {
   display: flex;
+  flex-wrap: wrap;
+  margin: -#{$contacts-row-item-half-gap};
 
-  > *:not(:last-child) {
-    margin-right: spacing.$base * 0.4rem;
+  > * {
+    margin: $contacts-row-item-half-gap;
   }
 }
 

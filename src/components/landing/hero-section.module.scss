@@ -60,7 +60,11 @@
 }
 
 .hero-btn {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+
+  @include mixins.respond(375px) {
+    font-size: 1.8rem;
+  }
 }
 
 .hero-title {

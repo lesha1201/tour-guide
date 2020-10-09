@@ -22,6 +22,10 @@ const NAV_ITEMS = SECTIONS.filter(({ isShownInMenu }) => isShownInMenu).map(
   }),
 );
 
+const logoTextCn = {
+  title: css.logoTextTitle,
+};
+
 function Header({ variant }: HeaderProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -65,7 +69,10 @@ function Header({ variant }: HeaderProps) {
     <Container as="header" className={headerCn}>
       <div className={css.mobHeader}>
         <RouterLink className={css.logoLink} to="/">
-          <LogoText color={isExpanded ? 'primary' : isLight ? 'white' : undefined} />
+          <LogoText
+            className={logoTextCn}
+            color={isExpanded ? 'primary' : isLight ? 'white' : undefined}
+          />
         </RouterLink>
 
         <div className={css.mobNav}>

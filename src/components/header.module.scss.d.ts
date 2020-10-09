@@ -8,6 +8,7 @@ export interface IHeaderModuleScss {
   'navList': string;
   'navListItem': string;
   'ctaBlock': string;
+  'logoTextTitle': string;
   'mobHeader': string;
   'mobNavIcon': string;
   'logoLink': string;
