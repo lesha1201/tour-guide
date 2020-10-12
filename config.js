@@ -12,5 +12,4 @@ module.exports = {
         'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
     },
   },
-  googleAnalyticsId: '-',
 };
