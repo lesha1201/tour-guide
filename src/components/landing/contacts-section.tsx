@@ -4,9 +4,10 @@ import { pick } from 'lodash';
 import { ReactComponent as MailIcon } from 'assets/icons/mail.svg';
 import { ReactComponent as PhoneIcon } from 'assets/icons/phone.svg';
 import { EMAIL, PHONE_NUMBER, SOCIAL } from 'constants/config';
-import { SectionTitle, Input, Button, Textarea } from 'components/ui';
+import { SectionTitle } from 'components/ui';
 import Section, { SectionProps } from './section';
 import ContactItem from './contact-item';
+import ContactForm from './contact-form';
 import * as css from './contacts-section.module.scss';
 
 export type ContactsSectionProps = Partial<SectionProps>;
@@ -51,17 +52,7 @@ function ContactsSection(props: ContactsSectionProps) {
           </div>
 
           <div className={css.gridItem}>
-            <form className={css.form}>
-              <Input placeholder="Имя" />
-              <Input placeholder="Номер телефона" />
-              <Input placeholder="Почта" />
-              <Textarea placeholder="Текст" rows={4} resize="vertical" />
-              <div>
-                <Button type="submit" isRounded>
-                  Отправить
-                </Button>
-              </div>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>

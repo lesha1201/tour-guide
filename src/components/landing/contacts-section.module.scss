@@ -46,13 +46,3 @@ $contacts-row-item-half-gap: $contacts-row-item-gap / 2;
     margin: $contacts-row-item-half-gap;
   }
 }
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-
-  > *:not(:last-child) {
-    margin-bottom: spacing.$base * 0.6rem;
-  }
-}

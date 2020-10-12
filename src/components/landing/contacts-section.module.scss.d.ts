@@ -5,7 +5,6 @@ export interface IContactsSectionModuleScss {
   'gridItem': string;
   'contacts': string;
   'contactsRow': string;
-  'form': string;
 }
 declare const styles: IContactsSectionModuleScss;
 export = styles;

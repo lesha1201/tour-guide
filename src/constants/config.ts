@@ -30,3 +30,8 @@ export const SOCIAL = {
     icon: InstagramIcon,
   },
 };
+
+export const RECAPTCHA_KEY = process.env.GATSBY_RECAPTCHA_KEY as string;
+
+export const FORMCARRY_CONTACT_FORM_ID = process.env
+  .GATSBY_FORMCARRY_CONTACT_FORM_ID as string;

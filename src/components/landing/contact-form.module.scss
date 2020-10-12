@@ -1,0 +1,11 @@
+@use 'tokens/spacing';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  > *:not(:last-child) {
+    margin-bottom: spacing.$base * 0.6rem;
+  }
+}

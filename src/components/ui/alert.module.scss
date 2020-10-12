@@ -1,0 +1,25 @@
+@use 'tokens/colors';
+
+.common {
+  padding: 1.111111em 1.555555em;
+
+  font-size: 1em;
+
+  border-radius: 0.4rem;
+}
+
+.success {
+  composes: common;
+
+  color: colors.$green-900;
+
+  background-color: colors.$green-50;
+}
+
+.error {
+  composes: common;
+
+  color: colors.$red-900;
+
+  background-color: colors.$red-50;
+}
