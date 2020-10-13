@@ -101,14 +101,6 @@ function HeroSection(props: HeroSectionProps) {
                 >
                   Экскурсии
                 </Button>
-                <Button
-                  className={css.heroBtn}
-                  variant="outlined"
-                  mainColor="white"
-                  isRounded
-                >
-                  Обо мне
-                </Button>
               </div>
             </div>
           </Container>
