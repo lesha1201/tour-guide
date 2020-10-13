@@ -1,7 +1,9 @@
 module.exports = {
   pathPrefix: '/',
   metadata: {
-    url: process.env.URL || process.env.VERCEL_URL,
+    url:
+      process.env.URL ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined),
     title: 'Гид по Санкт-Петербургу Марина Петрова',
     titleTemplate: '%s | Марина Петрова',
     description: 'Индивидуальный гид по Санкт-Петербургу.',
