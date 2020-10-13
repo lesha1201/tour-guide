@@ -19,8 +19,11 @@ export const EXCURSION_CARD_COVER_FRAGMENT = graphql`
 export const EXCURSION_COVER_FRAGMENT = graphql`
   fragment ExcursionCover on File {
     childImageSharp {
-      fluid(maxWidth: 1480) {
+      cover: fluid(maxWidth: 1480) {
         ...GatsbyImageSharpFluid_withWebp
+      }
+      seo: fixed(width: 1200, height: 628, cropFocus: CENTER) {
+        src
       }
     }
   }

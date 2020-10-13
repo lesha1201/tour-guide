@@ -3041,8 +3041,9 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___url'
   | 'siteMetadata___title'
-  | 'siteMetadata___subtitle'
-  | 'siteMetadata___copyright'
+  | 'siteMetadata___titleTemplate'
+  | 'siteMetadata___description'
+  | 'siteMetadata___image'
   | 'siteMetadata___author___name'
   | 'siteMetadata___author___bio'
   | 'port'
@@ -3351,8 +3352,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___extensions'
-  | 'pluginCreator___pluginOptions___trackingIds'
-  | 'pluginCreator___pluginOptions___pluginConfig___head'
   | 'pluginCreator___pluginOptions___query'
   | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___short_name'
@@ -3558,8 +3557,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___path'
   | 'pluginOptions___name'
   | 'pluginOptions___extensions'
-  | 'pluginOptions___trackingIds'
-  | 'pluginOptions___pluginConfig___head'
   | 'pluginOptions___query'
   | 'pluginOptions___output'
   | 'pluginOptions___short_name'
@@ -3695,8 +3692,6 @@ export type SitePluginPluginOptions = {
   path?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
-  trackingIds?: Maybe<Array<Maybe<Scalars['String']>>>;
-  pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfig>;
   query?: Maybe<Scalars['String']>;
   output?: Maybe<Scalars['String']>;
   short_name?: Maybe<Scalars['String']>;
@@ -3717,8 +3712,6 @@ export type SitePluginPluginOptionsFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
-  trackingIds?: Maybe<StringQueryOperatorInput>;
-  pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfigFilterInput>;
   query?: Maybe<StringQueryOperatorInput>;
   output?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
@@ -3735,15 +3728,6 @@ export type SitePluginPluginOptionsFilterInput = {
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
-export type SitePluginPluginOptionsPluginConfig = {
-  __typename?: 'SitePluginPluginOptionsPluginConfig';
-  head?: Maybe<Scalars['Boolean']>;
-};
-
-export type SitePluginPluginOptionsPluginConfigFilterInput = {
-  head?: Maybe<BooleanQueryOperatorInput>;
-};
-
 export type SitePluginSortInput = {
   fields?: Maybe<Array<Maybe<SitePluginFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
@@ -3753,8 +3737,9 @@ export type SiteSiteMetadata = {
   __typename?: 'SiteSiteMetadata';
   url?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<Scalars['String']>;
-  copyright?: Maybe<Scalars['String']>;
+  titleTemplate?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
   author?: Maybe<SiteSiteMetadataAuthor>;
 };
 
@@ -3772,8 +3757,9 @@ export type SiteSiteMetadataAuthorFilterInput = {
 export type SiteSiteMetadataFilterInput = {
   url?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  subtitle?: Maybe<StringQueryOperatorInput>;
-  copyright?: Maybe<StringQueryOperatorInput>;
+  titleTemplate?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<SiteSiteMetadataAuthorFilterInput>;
 };
 
@@ -4516,6 +4502,23 @@ export type TestimonialsSection_TestimonialsQuery = { __typename?: 'Query' } & {
   };
 };
 
+export type SeoQueryVariables = Exact<{ [key: string]: never }>;
+
+export type SeoQuery = { __typename?: 'Query' } & {
+  site?: Maybe<
+    { __typename?: 'Site' } & {
+      siteMetadata?: Maybe<
+        { __typename?: 'SiteSiteMetadata' } & Pick<SiteSiteMetadata, 'titleTemplate'> & {
+            defaultTitle: SiteSiteMetadata['title'];
+            defaultDescription: SiteSiteMetadata['description'];
+            siteUrl: SiteSiteMetadata['url'];
+            defaultImage: SiteSiteMetadata['image'];
+          }
+      >;
+    }
+  >;
+};
+
 export type ExcursionCardCoverFragment = { __typename?: 'File' } & {
   childImageSharp?: Maybe<
     { __typename?: 'ImageSharp' } & {
@@ -4529,9 +4532,10 @@ export type ExcursionCardCoverFragment = { __typename?: 'File' } & {
 export type ExcursionCoverFragment = { __typename?: 'File' } & {
   childImageSharp?: Maybe<
     { __typename?: 'ImageSharp' } & {
-      fluid?: Maybe<
+      cover?: Maybe<
         { __typename?: 'ImageSharpFluid' } & GatsbyImageSharpFluid_WithWebpFragment
       >;
+      seo?: Maybe<{ __typename?: 'ImageSharpFixed' } & Pick<ImageSharpFixed, 'src'>>;
     }
   >;
 };
@@ -4582,7 +4586,7 @@ export type ExcursionBySlugQuery = { __typename?: 'Query' } & {
         frontmatter?: Maybe<
           { __typename?: 'MdxFrontmatter' } & Pick<
             MdxFrontmatter,
-            'title' | 'duration' | 'price'
+            'title' | 'duration' | 'price' | 'description'
           > & {
               coverImage?: Maybe<{ __typename?: 'File' } & ExcursionCoverFragment>;
               gallery?: Maybe<

@@ -1,15 +1,10 @@
 module.exports = {
   pathPrefix: '/',
   metadata: {
-    url: 'http://localhost:8000',
-    title: 'Title',
-    subtitle:
-      'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
-    copyright: '© All rights reserved.',
-    author: {
-      name: 'Alexey Ryabov',
-      bio:
-        'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
-    },
+    url: process.env.URL || process.env.VERCEL_URL,
+    title: 'Гид по Санкт-Петербургу Марина Петрова',
+    titleTemplate: '%s | Марина Петрова',
+    description: 'Индивидуальный гид по Санкт-Петербургу.',
+    image: '/images/meta-image.jpg',
   },
 };

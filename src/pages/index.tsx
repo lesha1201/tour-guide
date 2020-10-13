@@ -19,6 +19,7 @@ import {
   TESTIMONIALS_SECTION,
   VIDEO_SECTION,
 } from 'constants/sections';
+import SEO from 'components/seo';
 
 type ComponentRenderer = (props: {
   id: string;
@@ -39,6 +40,7 @@ const SECTIONS_COMPONENT_RENDERER: Record<string, ComponentRenderer> = {
 function IndexPage() {
   return (
     <>
+      <SEO hasTitleTemplate={false} />
       {SECTIONS.map(({ id }, index) => {
         const componentRenderer = SECTIONS_COMPONENT_RENDERER[id];
 

@@ -13,6 +13,7 @@ type ExcursionFrontmatter =
         coverImage?: Maybe<{
           childImageSharp?: Maybe<{
             fluid?: Maybe<GatsbyImageSharpFluidFragment>;
+            cover?: Maybe<GatsbyImageSharpFluidFragment>;
           }>;
         }>;
         gallery?: Maybe<Array<Maybe<ExcursionGalleryImageFragment>>>;
@@ -23,7 +24,10 @@ type ExcursionFrontmatter =
 export function formatExcursionFrontmatterData(data: ExcursionFrontmatter) {
   return {
     coverImage: {
-      fluid: (data?.coverImage?.childImageSharp?.fluid as FluidObject) || undefined,
+      fluid:
+        (data?.coverImage?.childImageSharp?.fluid as FluidObject) ||
+        (data?.coverImage?.childImageSharp?.cover as FluidObject) ||
+        undefined,
     },
     gallery: data?.gallery?.map(image => image?.childImageSharp) || [],
     title: data?.title || '',
