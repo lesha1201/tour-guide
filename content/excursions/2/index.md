@@ -3,7 +3,7 @@ title: Excursion 2
 template: excursion
 duration: 'от 3 часов'
 price: 6000
-createdAt: '2016-09-01T23:46:37.121Z'
+createdAt: '2016-09-01T23:46:37.122Z'
 description: 'Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.'
 coverImage: ./images/cover.jpg
 gallery:
