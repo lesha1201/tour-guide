@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import * as css from './section-title.module.scss';
+import css from './section-title.module.scss';
 
 export type SectionTitleProps = React.HTMLAttributes<HTMLHeadingElement> & {
   align: 'left' | 'center' | 'right';

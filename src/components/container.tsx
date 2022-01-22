@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { OverwritableType } from 'types/common';
-import * as css from './container.module.scss';
+import css from './container.module.scss';
 
 export type ContainerBaseProps<T extends React.ElementType> = {
   /** Element type (React component or string) that will be used */

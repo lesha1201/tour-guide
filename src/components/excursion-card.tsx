@@ -5,7 +5,7 @@ import Img, { FluidObject } from 'gatsby-image';
 import { ReactComponent as TimerIcon } from 'assets/icons/timer.svg';
 import { ReactComponent as RubleIcon } from 'assets/icons/ruble.svg';
 import ExcursionProperty from './excursion-property';
-import * as css from './excursion-card.module.scss';
+import css from './excursion-card.module.scss';
 
 export type ExcursionCardProps = {
   coverImage: {

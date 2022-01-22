@@ -15,7 +15,21 @@
     "skipLibCheck": true,
     "outDir": "build",
     "lib": ["es6", "es7", "dom"],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "dashesOnly",
+          "namedExports": false,
+          "rendererOptions": {
+            "sass": {
+              "includePaths": ["src/assets/scss"]
+            }
+          }
+        }
+      }
+    ]
   },
-  "exclude": ["build", "node_modules"]
+  "exclude": ["build", ".cache", "public", "node_modules"]
 }

@@ -7,7 +7,7 @@ import { CLASS_NAMES as KEEN_SLIDER_CN } from 'constants/keen-slider';
 import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 import { ReactComponent as ChevronLeft } from 'assets/icons/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/icons/chevron-right.svg';
-import * as css from './lightbox.module.scss';
+import css from './lightbox.module.scss';
 
 export type LightboxImage = {
   src: string;

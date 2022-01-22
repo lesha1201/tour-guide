@@ -63,15 +63,8 @@ function getCssRules({ stage, loaders }) {
   const sassRuleModules = {
     test: /\.module\.s(a|c)ss$/,
     use: [
-      !isSSR && loaders.miniCssExtract({ hmr: false }),
-      {
-        loader: 'dts-css-modules-loader',
-        options: {
-          namedExport: false,
-          banner: '// This file is generated automatically',
-        },
-      },
-      loaders.css({ modules: true, importLoaders: 2 }),
+      !isSSR && loaders.miniCssExtract(),
+      loaders.css({ modules: { namedExport: false }, importLoaders: 2 }),
       loaders.postcss({ plugins: postCssPlugins }),
       sassLoader,
     ].filter(Boolean),
@@ -105,18 +98,8 @@ function getCssRules({ stage, loaders }) {
 function getSVGRules({ stage, loaders }) {
   const svgRule = {
     test: /\.svg$/,
-    issuer: {
-      test: /\.(j|t)sx?$/,
-    },
-    use: [
-      {
-        loader: '@svgr/webpack',
-        options: {
-          svgo: true,
-        },
-      },
-      loaders.url(),
-    ],
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack', loaders.url()],
   };
 
   let configRules = [];

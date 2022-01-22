@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import * as css from './feature.module.scss';
+import css from './feature.module.scss';
 
 export type FeatureProps = React.HTMLAttributes<HTMLDivElement> & {
   title: string;

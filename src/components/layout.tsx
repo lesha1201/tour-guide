@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as css from './layout.module.scss';
+import css from './layout.module.scss';
 
 export type LayoutProps = {
   header: React.ReactNode;

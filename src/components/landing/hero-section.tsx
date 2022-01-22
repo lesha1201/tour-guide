@@ -9,46 +9,48 @@ import Container from 'components/container';
 import Button from 'components/ui/button';
 import { EXCURSIONS_SECTION } from 'constants/sections';
 import { ReactComponent as ChevronDown } from 'assets/icons/chevron-down.svg';
-import * as css from './hero-section.module.scss';
+import css from './hero-section.module.scss';
 
 export type HeroSectionProps = React.HTMLAttributes<HTMLDivElement>;
 
 function HeroSection(props: HeroSectionProps) {
-  const { profilePhoto, background, backgroundMobile } = useStaticQuery<
-    HeroSection_ProfilePhotoQuery
-  >(graphql`
-    query HeroSection_ProfilePhoto {
-      profilePhoto: file(
-        sourceInstanceName: { eq: "images" }
-        name: { eq: "profile-photo" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 358) {
-            ...GatsbyImageSharpFluid_withWebp
+  const { profilePhoto, background, backgroundMobile } =
+    useStaticQuery<HeroSection_ProfilePhotoQuery>(graphql`
+      query HeroSection_ProfilePhoto {
+        profilePhoto: file(
+          sourceInstanceName: { eq: "images" }
+          name: { eq: "profile-photo" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 358) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
-      }
 
-      backgroundMobile: file(
-        sourceInstanceName: { eq: "images" }
-        name: { eq: "landing-bg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 768, maxHeight: 1024, cropFocus: CENTER) {
-            ...GatsbyImageSharpFluid_withWebp
+        backgroundMobile: file(
+          sourceInstanceName: { eq: "images" }
+          name: { eq: "landing-bg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 768, maxHeight: 1024, cropFocus: CENTER) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
-      }
 
-      background: file(sourceInstanceName: { eq: "images" }, name: { eq: "landing-bg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp
+        background: file(
+          sourceInstanceName: { eq: "images" }
+          name: { eq: "landing-bg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
       }
-    }
-  `);
+    `);
 
   const backgroundSources = useMemo(
     () =>

@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 import Logo, { LogoColor } from './logo';
-import * as css from './logo-text.module.scss';
+import css from './logo-text.module.scss';
 
 export type LogoTextProps = {
   color: LogoColor;

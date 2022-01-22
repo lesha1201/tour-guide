@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { OverwritableType } from 'types/common';
-import * as css from './input-base.module.scss';
+import css from './input-base.module.scss';
 
 export interface InputBaseBaseProps<T extends React.ElementType> {
   /** Element type (React component or string) that will be used */

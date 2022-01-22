@@ -12,14 +12,14 @@ import { formatExcursionFrontmatterData } from 'utils/data';
 import ExcursionCover from './excursion-cover';
 import ExcursionContent from './excursion-content';
 import ExcursionGallery from './excursion-gallery';
-import * as css from './excursion.module.scss';
+import css from './excursion.module.scss';
 
 export type ExcursionProps = {
   excursion: Pick<Mdx, 'body'> & {
     frontmatter?: Maybe<
       Pick<MdxFrontmatter, 'duration' | 'price' | 'title'> & {
         coverImage?: Maybe<ExcursionCoverFragment>;
-        gallery?: Maybe<Array<Maybe<ExcursionGalleryImageFragment>>>;
+        gallery?: Maybe<Array<Maybe<ExcursionGalleryImageFragment> | undefined>>;
       }
     >;
   };
@@ -28,9 +28,10 @@ export type ExcursionProps = {
 function Excursion({ excursion }: ExcursionProps) {
   const { body, frontmatter } = excursion;
 
-  const excursionData = useMemo(() => formatExcursionFrontmatterData(frontmatter), [
-    frontmatter,
-  ]);
+  const excursionData = useMemo(
+    () => formatExcursionFrontmatterData(frontmatter),
+    [frontmatter],
+  );
 
   return (
     <Container variant="page">

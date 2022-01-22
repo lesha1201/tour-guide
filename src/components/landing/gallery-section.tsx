@@ -8,7 +8,7 @@ import {
 import GalleryItem, { GalleryItemProps } from 'components/gallery-item';
 import { Lightbox, SectionTitle } from 'components/ui';
 import Section, { SectionProps } from './section';
-import * as css from './gallery-section.module.scss';
+import css from './gallery-section.module.scss';
 
 export type GallerySectionProps = Partial<SectionProps>;
 
@@ -66,9 +66,10 @@ function GallerySection(props: GallerySectionProps) {
 
   const filteredGallery = useMemo(() => filterGallery(gallery), [gallery]);
 
-  const lightboxImages = useMemo(() => convertToLightboxImages(filteredGallery), [
-    filteredGallery,
-  ]);
+  const lightboxImages = useMemo(
+    () => convertToLightboxImages(filteredGallery),
+    [filteredGallery],
+  );
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0);

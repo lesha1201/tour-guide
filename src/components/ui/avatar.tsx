@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import * as css from './avatar.module.scss';
+import css from './avatar.module.scss';
 
 /* -- AvatarImg */
 

@@ -24,28 +24,25 @@ function generatePatternId(randomData: any[]) {
 }
 
 function CirclesPattern({ rows, columns, space, size, ...rest }: CirclesPatternProps) {
-  const height = useMemo(() => calculateLength({ count: rows, size, space }), [
-    rows,
-    size,
-    space,
-  ]);
+  const height = useMemo(
+    () => calculateLength({ count: rows, size, space }),
+    [rows, size, space],
+  );
 
-  const width = useMemo(() => calculateLength({ count: columns, size, space }), [
-    columns,
-    size,
-    space,
-  ]);
+  const width = useMemo(
+    () => calculateLength({ count: columns, size, space }),
+    [columns, size, space],
+  );
 
   const radius = size / 2;
 
   const patternWidthPercent = 100 / columns;
   const patternHeightPercent = 100 / rows;
 
-  const patternId = useMemo(() => generatePatternId([radius, width, height]), [
-    radius,
-    width,
-    height,
-  ]);
+  const patternId = useMemo(
+    () => generatePatternId([radius, width, height]),
+    [radius, width, height],
+  );
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} {...rest}>

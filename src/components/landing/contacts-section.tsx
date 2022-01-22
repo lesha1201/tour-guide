@@ -8,7 +8,7 @@ import { SectionTitle } from 'components/ui';
 import Section, { SectionProps } from './section';
 import ContactItem from './contact-item';
 import ContactForm from './contact-form';
-import * as css from './contacts-section.module.scss';
+import css from './contacts-section.module.scss';
 
 export type ContactsSectionProps = Partial<SectionProps>;
 

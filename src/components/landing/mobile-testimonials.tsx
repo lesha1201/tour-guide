@@ -5,7 +5,7 @@ import { ReactComponent as ChevronRight } from 'assets/icons/chevron-right.svg';
 import { TestimonialFragment } from 'types/graphql';
 import Button from 'components/ui/button';
 import Testimonial from 'components/testimonial';
-import * as css from './mobile-testimonials.module.scss';
+import css from './mobile-testimonials.module.scss';
 
 export type MobileTestimonialsProps = {
   testimonials: TestimonialFragment[];

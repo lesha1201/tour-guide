@@ -9,7 +9,7 @@ import { SECTIONS } from 'constants/sections';
 import { Link, ButtonIcon } from './ui';
 import LogoText from './logo-text';
 import Container from './container';
-import * as css from './header.module.scss';
+import css from './header.module.scss';
 
 export type HeaderProps = {
   variant?: 'default' | 'light';

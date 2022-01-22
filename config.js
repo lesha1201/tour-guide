@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: '/',
   metadata: {
-    url:
+    siteUrl:
       process.env.URL ||
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined),
     title: 'Гид по Санкт-Петербургу Марина Петрова',

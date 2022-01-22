@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import Container from 'components/container';
-import * as css from './section.module.scss';
+import css from './section.module.scss';
 
 export type SectionProps = React.HTMLAttributes<HTMLDivElement> & {
   variant: 'primary' | 'secondary';

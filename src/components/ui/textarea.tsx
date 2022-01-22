@@ -3,7 +3,7 @@ import { camelCase } from 'lodash';
 import React from 'react';
 
 import InputBase, { InputBaseProps } from './input-base';
-import * as css from './textarea.module.scss';
+import css from './textarea.module.scss';
 
 export type TextareaProps = Omit<InputBaseProps<'textarea'>, 'as'> & {
   resize: 'vertical' | 'horizontal' | 'none';

@@ -2,37 +2,35 @@
 @use '../tokens/colors';
 @use '../tokens/spacing';
 
-:global {
-  .btn-reset {
-    display: inline-flex;
+.btn-reset {
+  display: inline-flex;
 
-    font-size: 1em;
-    font-family: inherit;
-    line-height: 1;
-    white-space: nowrap;
-    text-decoration: none;
+  font-size: 1em;
+  font-family: inherit;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
 
-    border: 1px solid transparent;
-    cursor: pointer;
+  border: 1px solid transparent;
+  cursor: pointer;
 
-    user-select: none;
-  }
+  user-select: none;
+}
 
-  .abs-stretch {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
+.abs-stretch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
-  .ignore-container-padding {
-    margin-right: -#{spacing.$container-sm};
-    margin-left: -#{spacing.$container-sm};
+.ignore-container-padding {
+  margin-right: -#{spacing.$container-sm};
+  margin-left: -#{spacing.$container-sm};
 
-    @include mixins.respond(tab-land) {
-      margin-right: -#{spacing.$container-md};
-      margin-left: -#{spacing.$container-md};
-    }
+  @include mixins.respond(tab-land) {
+    margin-right: -#{spacing.$container-md};
+    margin-left: -#{spacing.$container-md};
   }
 }

@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { ExcursionGalleryImageFragment, Maybe } from 'types/graphql';
 import { Lightbox } from 'components/ui';
 import GalleryItem, { GalleryItemProps } from 'components/gallery-item';
-import * as css from './excursion-gallery.module.scss';
+import css from './excursion-gallery.module.scss';
 
 export type ExcursionGalleryProps = {
   images: Maybe<Array<Maybe<ExcursionGalleryImageFragment['childImageSharp']>>>;
@@ -41,9 +41,10 @@ function ExcursionGallery({ images }: ExcursionGalleryProps) {
 
   const filteredImages = useMemo(() => filterImages(images), [images]);
 
-  const lightboxImage = useMemo(() => convertToLightboxImages(filteredImages), [
-    filteredImages,
-  ]);
+  const lightboxImage = useMemo(
+    () => convertToLightboxImages(filteredImages),
+    [filteredImages],
+  );
 
   return (
     <>

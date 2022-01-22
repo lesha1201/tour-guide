@@ -5,7 +5,7 @@ import { ReactComponent as RubleIcon } from 'assets/icons/ruble.svg';
 import { Mdx, MdxFrontmatter } from 'types/graphql';
 import ExcursionProperty from 'components/excursion-property';
 import MDX from 'components/mdx';
-import * as css from './excursion-content.module.scss';
+import css from './excursion-content.module.scss';
 
 export type ExcursionContentProps = {
   body: Mdx['html'];

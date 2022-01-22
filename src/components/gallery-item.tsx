@@ -2,7 +2,7 @@ import React from 'react';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 
 import { ReactComponent as ZoomInIcon } from 'assets/icons/zoom-in.svg';
-import * as css from './gallery-item.module.scss';
+import css from './gallery-item.module.scss';
 
 export type GalleryItemProps = {
   image: GatsbyImageProps;

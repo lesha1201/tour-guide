@@ -21,20 +21,15 @@ function SEO({ title, description, image, isArticle, hasTitleTemplate }: SEOProp
           defaultTitle: title
           titleTemplate
           defaultDescription: description
-          siteUrl: url
+          siteUrl
           defaultImage: image
         }
       }
     }
   `);
 
-  const {
-    defaultTitle,
-    titleTemplate,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
-  } = site.siteMetadata;
+  const { defaultTitle, titleTemplate, defaultDescription, siteUrl, defaultImage } =
+    site.siteMetadata;
 
   const seo = {
     title: title || defaultTitle,

@@ -5,7 +5,7 @@ import { useForm } from '@formcarry/react';
 
 import { FORMCARRY_CONTACT_FORM_ID, RECAPTCHA_KEY } from 'constants/config';
 import { Alert, Button, Input, Textarea } from 'components/ui';
-import * as css from './contact-form.module.scss';
+import css from './contact-form.module.scss';
 
 function ContactForm() {
   const { state, submit } = useForm({

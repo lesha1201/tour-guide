@@ -4,8 +4,8 @@ import { EMAIL, PHONE_NUMBER, SOCIAL } from 'constants/config';
 import Link from './ui/link';
 import LogoText from './logo-text';
 import Container from './container';
-import * as css from './footer.module.scss';
 import CirclesPattern from './circles-pattern';
+import css from './footer.module.scss';
 
 const logoTextCn = {
   base: css.logoBase,

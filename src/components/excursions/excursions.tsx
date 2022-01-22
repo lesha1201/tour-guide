@@ -10,7 +10,7 @@ import {
 } from 'types/graphql';
 import ExcursionCard from 'components/excursion-card';
 import { formatExcursionFrontmatterData } from 'utils/data';
-import * as css from './excursions.module.scss';
+import css from './excursions.module.scss';
 
 export type ExcursionsProps = {
   excursions: Array<

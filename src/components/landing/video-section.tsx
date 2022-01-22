@@ -2,7 +2,7 @@ import React from 'react';
 
 import CirclesPattern from 'components/circles-pattern';
 import Section, { SectionProps } from './section';
-import * as css from './video-section.module.scss';
+import css from './video-section.module.scss';
 
 export type VideoSectionProps = Partial<SectionProps>;
 

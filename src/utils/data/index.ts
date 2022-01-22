@@ -16,7 +16,7 @@ type ExcursionFrontmatter =
             cover?: Maybe<GatsbyImageSharpFluidFragment>;
           }>;
         }>;
-        gallery?: Maybe<Array<Maybe<ExcursionGalleryImageFragment>>>;
+        gallery?: Maybe<Array<Maybe<ExcursionGalleryImageFragment | undefined>>>;
       }
     >
   | undefined;

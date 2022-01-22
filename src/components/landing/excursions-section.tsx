@@ -7,7 +7,7 @@ import { PATH } from 'constants/routes';
 import { Button, SectionTitle } from 'components/ui';
 import ExcursionCard from 'components/excursion-card';
 import Section, { SectionProps } from './section';
-import * as css from './excursions-section.module.scss';
+import css from './excursions-section.module.scss';
 
 export type ExcursionsSectionProps = Partial<SectionProps>;
 

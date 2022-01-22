@@ -3,7 +3,7 @@ import React from 'react';
 import SectionTitle from 'components/ui/section-title';
 import Section, { SectionProps } from './section';
 import Feature from './feature';
-import * as css from './features-section.module.scss';
+import css from './features-section.module.scss';
 
 export type HeroSectionProps = Partial<SectionProps>;
 

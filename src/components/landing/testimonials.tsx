@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { TestimonialFragment } from 'types/graphql';
 import { Button } from 'components/ui';
 import Testimonial from 'components/testimonial';
-import * as css from './testimonials.module.scss';
+import css from './testimonials.module.scss';
 
 type TestimonialsProps = {
   testimonials: TestimonialFragment[];
@@ -15,9 +15,10 @@ const TESTIMONIALS_GROUP_SIZE = 3;
 function Testimonials({ testimonials }: TestimonialsProps) {
   const groupsCount = Math.ceil(testimonials.length / TESTIMONIALS_GROUP_SIZE);
 
-  const groups = useMemo(() => _.chunk(testimonials, TESTIMONIALS_GROUP_SIZE), [
-    testimonials,
-  ]);
+  const groups = useMemo(
+    () => _.chunk(testimonials, TESTIMONIALS_GROUP_SIZE),
+    [testimonials],
+  );
 
   const [shownGroupsCount, setShownGroupsCount] = useState(1);
 

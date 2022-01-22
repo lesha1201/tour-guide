@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import * as css from './alert.module.scss';
+import css from './alert.module.scss';
 
 export type AlertProps = React.HTMLAttributes<HTMLDivElement> & {
   variant: 'success' | 'error';

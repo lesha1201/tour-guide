@@ -3,7 +3,7 @@ import Img, { FixedObject } from 'gatsby-image';
 
 import { TestimonialFragment } from 'types/graphql';
 import Avatar from './ui/avatar';
-import * as css from './testimonial.module.scss';
+import css from './testimonial.module.scss';
 
 export type TestimonialProps = {
   testimonial: TestimonialFragment;

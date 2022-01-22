@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { OverwritableType } from 'types/common';
-import * as css from './link.module.scss';
+import css from './link.module.scss';
 
 export type LinkBaseProps<T extends React.ElementType = 'a'> = {
   /** Element type (React component or string) that will be used */

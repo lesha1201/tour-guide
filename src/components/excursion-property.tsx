@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import * as css from './excursion-property.module.scss';
+import css from './excursion-property.module.scss';
 
 export type ExcursionPropertyProps = {
   icon: React.ReactNode;

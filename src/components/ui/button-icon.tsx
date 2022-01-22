@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { OverwritableType } from 'types/common';
-import * as css from './button-icon.module.scss';
+import css from './button-icon.module.scss';
 
 export interface ButtonIconBaseProps<T extends React.ElementType> {
   /** Element type (React component or string) that will be used */
